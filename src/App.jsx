@@ -1,172 +1,200 @@
 import './App.css'
 
-const content = {
-  en: {
-    nav: ['Home', 'Portfolio', 'About', 'Contact'],
-    available: 'Available for work',
-    hello: "Hello, I'm",
-    name: 'Artin Krasniqi',
-    role1: 'Full-Stack Web Developer',
-    role2: '& Creative Digital Builder',
-    subtitle:
-      'I build secure, scalable, and conversion-focused web experiences with modern design and clean code.',
-    ctaPrimary: 'Explore My Work',
-    ctaSecondary: 'Contact Me',
-    location: 'Prishtina District, Kosovo',
-    aboutTitle: 'About',
-    aboutText:
-      'Ambitious and analytical developer with strong practical skills in programming, IT systems, and solving real business problems. I focus on performance, clear UX, and production-ready delivery.',
-    expertiseTitle: 'Expertise / Skills',
-    featuredTitle: 'Featured projects',
-    contactTitle: "Let's build something that actually works.",
-    contactHint: 'Tap to copy email',
-    footerText: '© 2026 Artin Krasniqi. All rights reserved.',
-    privacy: 'Privacy Policy',
-    terms: 'Terms',
-  },
-  sq: {
-    nav: ['Kryefaqja', 'Portfolio', 'Rreth meje', 'Kontakt'],
-    available: 'I disponueshëm për punë',
-    hello: 'Përshëndetje, unë jam',
-    name: 'Artin Krasniqi',
-    role1: 'Zhvillues Full-Stack',
-    role2: '& Krijues Digjital',
-    subtitle:
-      'Ndërtoj përvoja web të sigurta, të shkallëzueshme dhe të orientuara në rezultate me dizajn modern dhe kod të pastër.',
-    ctaPrimary: 'Shiko projektet',
-    ctaSecondary: 'Më kontakto',
-    location: 'Rrethi i Prishtinës, Kosovë',
-    aboutTitle: 'Rreth meje',
-    aboutText:
-      'Zhvillues ambicioz dhe analitik me aftësi të forta praktike në programim, sisteme IT dhe zgjidhje të problemeve reale të biznesit. Fokusohem në performancë, UX të qartë dhe dorëzim profesional.',
-    expertiseTitle: 'Ekspertizë / Aftësi',
-    featuredTitle: 'Projektet kryesore',
-    contactTitle: 'Le të ndërtojmë diçka që funksionon vërtet.',
-    contactHint: 'Kliko për ta kopjuar emailin',
-    footerText: '© 2026 Artin Krasniqi. Të gjitha të drejtat e rezervuara.',
-    privacy: 'Politika e Privatësisë',
-    terms: 'Kushtet',
-  },
-}
-
-const skills = ['React', 'Next.js', 'TypeScript', 'Node.js', 'SEO', 'UI/UX', 'JavaScript', 'WordPress']
-
 const projects = [
   {
     title: 'Client Business Website',
-    desc: 'Custom responsive business website with SEO setup and CMS handover for easy content editing.',
-    live: '#',
+    description:
+      'Custom business website me strukturë moderne, SEO bazë dhe menaxhim të lehtë të përmbajtjes.',
+    stack: ['React', 'CSS', 'SEO'],
+    live: 'https://artin64.github.io/artin64-elite-portfolio/',
   },
   {
     title: 'Lead Capture Landing',
-    desc: 'High-conversion landing page with clear CTA flow, fast loading and conversion-focused structure.',
+    description:
+      'Landing page e optimizuar për konvertime me CTA të qarta, performancë të lartë dhe UX të pastër.',
+    stack: ['Next.js', 'TypeScript', 'Analytics'],
     live: '#',
   },
   {
-    title: 'Management Dashboard Concept',
-    desc: 'Role-based dashboard concept for internal reporting, operations and simplified decision workflows.',
+    title: 'Management Dashboard',
+    description:
+      'Dashboard koncept për menaxhim operacionesh, raportime dhe workflows për role të ndryshme.',
+    stack: ['Node.js', 'SQL', 'UI/UX'],
     live: '#',
   },
   {
-    title: 'Service Showcase Website',
-    desc: 'Modern personal/service showcase with smooth animations, strong accessibility and responsive layout.',
+    title: 'Service Showcase',
+    description:
+      'Prezantim profesional i shërbimeve me seksione të qarta dhe dizajn premium responsive.',
+    stack: ['JavaScript', 'Design', 'Performance'],
+    live: '#',
+  },
+  {
+    title: 'Portfolio Refresh',
+    description:
+      'Redesign i plotë i portfolio-s me stil modern, animacione dhe strukturë vizuale enterprise.',
+    stack: ['Vite', 'React', 'Animations'],
+    live: '#',
+  },
+  {
+    title: 'Business Automation Mini App',
+    description:
+      'Mini aplikacion për automatizim të proceseve të thjeshta të biznesit dhe menaxhim lead-esh.',
+    stack: ['Node.js', 'API', 'MongoDB'],
     live: '#',
   },
 ]
 
-function initials(name) {
-  return name
-    .split(' ')
-    .map((w) => w[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase()
-}
+const skills = [
+  { icon: '⚛️', name: 'React' },
+  { icon: '▲', name: 'Next.js' },
+  { icon: '🟨', name: 'JavaScript' },
+  { icon: '🟦', name: 'TypeScript' },
+  { icon: '🟩', name: 'Node.js' },
+  { icon: '🎨', name: 'UI/UX Design' },
+  { icon: '🚀', name: 'Performance' },
+  { icon: '🔍', name: 'SEO' },
+]
 
 export default function App() {
-  const lang = window.location.pathname.startsWith('/sq') ? 'sq' : 'en'
-  const t = content[lang]
-
   return (
-    <div className="site">
-      <header className="nav-wrap">
-        <a className="brand" href="#home">AK</a>
+    <div className="page">
+      <header className="topbar">
+        <a className="logo" href="#home">
+          ArtinKrasniqi
+        </a>
+
         <nav>
-          <a href="#home">{t.nav[0]}</a>
-          <a href="#portfolio">{t.nav[1]}</a>
-          <a href="#about">{t.nav[2]}</a>
-          <a href="#contact">{t.nav[3]}</a>
+          <a href="#home">Home</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
       <main>
         <section id="home" className="hero">
-          <div className="hero-text">
-            <span className="pill">{t.available}</span>
-            <p className="hello">{t.hello}</p>
-            <h1>{t.name}</h1>
-            <h2>
-              {t.role1}
-              <br />
-              {t.role2}
-            </h2>
-            <p className="sub">{t.subtitle}</p>
-            <div className="stats">
-              <div><strong>2+</strong><span>Years Experience</span></div>
-              <div><strong>20+</strong><span>Projects Delivered</span></div>
-              <div><strong>Global</strong><span>Remote Clients</span></div>
+          <div className="hero-content fade-up">
+            <span className="badge">Available for work</span>
+            <h1>Artin Krasniqi</h1>
+            <h2>Full-Stack Web Developer & Creative Builder</h2>
+            <p>
+              Ndërtoj produkte web të shpejta, të sigurta dhe të dizajnuara për rezultat real.
+              Fokus te performanca, konvertimi dhe eksperienca premium e përdoruesit.
+            </p>
+
+            <div className="hero-actions">
+              <a className="btn primary" href="#portfolio">
+                Explore My Work
+              </a>
+              <a className="btn ghost" href="#contact">
+                Let&apos;s Talk
+              </a>
             </div>
-            <div className="actions">
-              <a className="btn" href="#portfolio">{t.ctaPrimary}</a>
-              <a className="btn btn-ghost" href="#contact">{t.ctaSecondary}</a>
+
+            <div className="hero-stats">
+              <div>
+                <strong>2+</strong>
+                <span>Years Experience</span>
+              </div>
+              <div>
+                <strong>20+</strong>
+                <span>Projects Completed</span>
+              </div>
+              <div>
+                <strong>95+</strong>
+                <span>Lighthouse Target</span>
+              </div>
             </div>
-            <p className="location">{t.location}</p>
           </div>
 
-          <div className="hero-card" aria-label="profile">
-            <div className="avatar">{initials(t.name)}</div>
-            <p>{t.name}</p>
-            <small>https://artinkrasniqi.netlify.app</small>
+          <div className="hero-visual fade-up delay-1">
+            <div className="avatar">AK</div>
+            <p>Prishtinë, Kosovë</p>
+            <small>Secure • Scalable • Creative</small>
           </div>
         </section>
 
-        <section className="skills-strip" aria-label={t.expertiseTitle}>
-          {skills.map((s) => (
-            <span key={s}>{s}</span>
-          ))}
-        </section>
+        <section id="portfolio" className="section fade-up">
+          <h3>Featured Projects</h3>
+          <div className="project-grid">
+            {projects.map((project) => (
+              <article key={project.title} className="project-card">
+                <div className="project-cover" />
+                <div className="project-body">
+                  <h4>{project.title}</h4>
+                  <p>{project.description}</p>
 
-        <section id="about" className="section">
-          <h3>{t.aboutTitle}</h3>
-          <p>{t.aboutText}</p>
-        </section>
+                  <div className="tech-stack">
+                    {project.stack.map((tech) => (
+                      <span key={tech}>{tech}</span>
+                    ))}
+                  </div>
 
-        <section id="portfolio" className="section">
-          <h3>{t.featuredTitle}</h3>
-          <div className="projects">
-            {projects.map((p) => (
-              <article key={p.title} className="card">
-                <div className="cover" />
-                <h4>{p.title}</h4>
-                <p>{p.desc}</p>
-                <a href={p.live}>Check Live Site</a>
+                  <div className="project-overlay">
+                    <a href={project.live} target="_blank" rel="noreferrer">
+                      View Live
+                    </a>
+                  </div>
+                </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="contact" className="contact section">
-          <h3>{t.contactTitle}</h3>
-          <a className="email" href="mailto:artin.krasniqi100@gmail.com">artin.krasniqi100@gmail.com</a>
-          <p>{t.contactHint}</p>
+        <section id="about" className="section about fade-up">
+          <div>
+            <h3>About Me</h3>
+            <p>
+              Jam zhvillues ambicioz me qasje analitike, i orientuar në ndërtimin e zgjidhjeve
+              praktike që sjellin rezultat. Punoj nga ideja deri te publikimi, duke mbajtur standard
+              të lartë në kod, dizajn dhe optimizim.
+            </p>
+            <p>
+              Qëllimi im është të ndërtoj produkte të qëndrueshme dhe të dukshme profesionalisht,
+              që jo vetëm duken mirë por edhe performojnë fort në përdorim real.
+            </p>
+          </div>
+
+          <div className="about-photo">
+            <div className="photo-placeholder">Your Professional Photo</div>
+          </div>
+        </section>
+
+        <section id="skills" className="section fade-up">
+          <h3>Expertise / Skills</h3>
+          <div className="skills-grid">
+            {skills.map((skill) => (
+              <div key={skill.name} className="skill-item">
+                <span>{skill.icon}</span>
+                <p>{skill.name}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="section contact fade-up">
+          <span className="badge">Available for work</span>
+          <h3>Let&apos;s build something that actually works.</h3>
+          <a href="mailto:artin.krasniqi100@gmail.com">artin.krasniqi100@gmail.com</a>
+
+          <div className="contact-links">
+            <a href="https://github.com/artin64" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <a href="#" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          </div>
         </section>
       </main>
 
       <footer>
-        <p>{t.footerText}</p>
+        <p>© {new Date().getFullYear()} Artin Krasniqi. All rights reserved.</p>
         <div>
-          <a href="#">{t.privacy}</a>
-          <a href="#">{t.terms}</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
         </div>
       </footer>
     </div>
