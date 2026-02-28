@@ -74,7 +74,13 @@ const timeline = [
   { year: '2026', role: 'Full Delivery', text: 'End-to-end development from idea to deployment.' },
 ]
 
-const terminalHelp = `Commands:\nls projects\nview <slug>\nskills\ncontact\nlocation\nweather\nclear`
+const testimonials = [
+  { name: 'Client A', role: 'Business Owner', quote: 'Shumë i shpejtë, profesional dhe rezultat konkret në lead-e.' },
+  { name: 'Client B', role: 'Startup Founder', quote: 'Design + performance në nivel premium. Komunikim super.' },
+  { name: 'Client C', role: 'Agency Partner', quote: 'Dorëzim i pastër, kod i mirë dhe UX që konverton.' },
+]
+
+const terminalHelp = `Commands:\nls projects\nview <slug>\nskills\ncontact\nlocation\nweather\ngithub\nclear`
 
 function useTypewriter(text, speed = 65) {
   const [value, setValue] = useState('')
@@ -107,6 +113,7 @@ export default function App() {
   const [chatOpen, setChatOpen] = useState(false)
   const [chatText, setChatText] = useState('')
   const [toasts, setToasts] = useState([])
+  const [githubStars, setGithubStars] = useState('...')
 
   const heroTitle = useTypewriter('Artin Krasniqi', 80)
   const heroSub = useTypewriter('Full-Stack Web Developer & Creative Builder', 30)
@@ -200,6 +207,13 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    fetch('https://api.github.com/repos/artin64/artin64-elite-portfolio')
+      .then((r) => r.json())
+      .then((d) => setGithubStars(typeof d.stargazers_count === 'number' ? String(d.stargazers_count) : 'N/A'))
+      .catch(() => setGithubStars('N/A'))
+  }, [])
+
+  useEffect(() => {
     if (!navigator.geolocation) {
       setLocationText('Geolocation not available')
       return
@@ -267,6 +281,7 @@ export default function App() {
       next.push('Navigating to contact section...')
     } else if (cmd === 'location') next.push(locationText)
     else if (cmd === 'weather') next.push(weatherText)
+    else if (cmd === 'github') next.push(`GitHub stars: ${githubStars}`)
     else if (cmd === 'clear') setTerminalLines([])
     else next.push('Unknown command. type `help`')
 
@@ -292,6 +307,7 @@ export default function App() {
           <a href="#portfolio">Portfolio</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
+          <a href="#testimonials">Testimonials</a>
           <a href="#contact">Contact</a>
         </nav>
         <div className="top-actions">
@@ -397,6 +413,19 @@ export default function App() {
           </div>
         </section>
 
+        <section id="testimonials" className="section" data-animate>
+          <h3>Testimonials</h3>
+          <div className="testimonials-grid">
+            {testimonials.map((t, i) => (
+              <article key={t.name} className="testimonial" style={{ animationDelay: `${i * 120}ms` }}>
+                <p>“{t.quote}”</p>
+                <strong>{t.name}</strong>
+                <span>{t.role}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="contact" className="section contact" data-animate>
           <h3>Let&apos;s build something strong.</h3>
           <form onSubmit={handleSubmit}>
@@ -410,6 +439,7 @@ export default function App() {
           <div className="widgets">
             <article><h4>Location API</h4><p>{locationText}</p></article>
             <article><h4>Weather Widget</h4><p>{weatherText}</p></article>
+            <article><h4>GitHub Live</h4><p>{githubStars} stars</p></article>
           </div>
 
           <div className="socials">
