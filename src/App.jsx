@@ -1,70 +1,115 @@
 import './App.css'
 
+const marqueeItems = [
+  'User-Friendly',
+  'Adaptive',
+  'Fluid',
+  'Future-Proof',
+  'SEO-Ready',
+  'Immersive',
+  'Protected',
+  'Dependable',
+  'Captivating',
+]
+
+const cards = [
+  {
+    title: 'Creative Stack',
+    text: 'Tools and resources that power my workflow and product delivery.',
+  },
+  {
+    title: 'AI Product Concepts',
+    text: 'SaaS concepts focused on practical UX, strong architecture and real utility.',
+  },
+  {
+    title: 'Issue Tracker Platform',
+    text: 'Full-stack management flow with authentication, filtering and clear team workflows.',
+  },
+  {
+    title: 'Interactive Web Experiences',
+    text: 'Fast and responsive interfaces built with modern frameworks and performance-first mindset.',
+  },
+]
+
 export default function App() {
   return (
-    <div className="site">
-      <header className="hero">
-        <div className="top-glow" />
+    <div className="page">
+      <header className="hero" id="home">
+        <div className="hero-overlay" />
         <nav className="nav">
-          <div className="logo">AK</div>
-          <div className="links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
-          </div>
+          <a className="logo" href="#home">AK</a>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <a className="pill" href="mailto:artin.krasniqi100@gmail.com">Book a Call</a>
         </nav>
 
-        <section id="home" className="hero-content">
-          <p className="badge">NEW</p>
+        <div className="hero-content">
+          <span className="mini-badge">NEW</span>
           <h1>
-            I design and build products that deliver
-            <span>real impact</span>
+            I design and build products that
+            <br />
+            deliver <em>real impact</em>
           </h1>
-          <p className="intro">
-            Hello, I&apos;m <strong>Artin Krasniqi</strong> — <strong>Full-Stack Developer</strong>.
+          <p>
+            Hello, I&apos;m <strong>Artin Krasniqi</strong> — Full-Stack Developer focused on modern,
+            scalable web products.
           </p>
-          <div className="actions">
-            <a href="#contact" className="btn primary">Let&apos;s Connect</a>
-            <a href="mailto:artin.krasniqi100@gmail.com" className="btn ghost">artin.krasniqi100@gmail.com</a>
+          <div className="hero-buttons">
+            <a className="btn solid" href="#contact">Let&apos;s Connect</a>
+            <a className="btn soft" href="mailto:artin.krasniqi100@gmail.com">artin.krasniqi100@gmail.com</a>
           </div>
-        </section>
+        </div>
       </header>
 
-      <main>
-        <section id="about" className="block">
-          <p className="kicker">A QUICK GLANCE</p>
-          <h2>Building the bridge between ideas and experiences</h2>
-          <p>
-            I&apos;m Artin Krasniqi, an engineering-driven developer who turns technical challenges
-            into high-speed web products. I build full-stack solutions with clean, reusable code
-            and practical architecture focused on performance.
-          </p>
-          <p>
-            I focus on modern tools like Next.js, React and Node.js to ship products that scale
-            and genuinely solve user problems.
-          </p>
-        </section>
+      <section className="marquee-wrap" aria-label="marquee">
+        <div className="marquee">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={`${item}-${i}`}>{item} ✦</span>
+          ))}
+        </div>
+      </section>
 
-        <section id="work" className="block cards">
-          <article className="card"><h3>Creative Stack</h3><p>Tools and resources that power my workflow.</p></article>
-          <article className="card"><h3>AI Product Concepts</h3><p>SaaS ideas with practical UX and scalable architecture.</p></article>
-          <article className="card"><h3>Issue Tracker Platform</h3><p>Workflow-focused full-stack application with auth & filtering.</p></article>
-          <article className="card"><h3>Interactive Web Apps</h3><p>Fast, responsive and user-centric experiences.</p></article>
-        </section>
+      <section className="about" id="about">
+        <p className="section-tag">A QUICK GLANCE</p>
+        <h2>
+          Building the bridge between ideas and <em>experiences</em>
+        </h2>
+        <p>
+          I&apos;m Artin Krasniqi, an engineering-driven developer who transforms technical complexity
+          into high-speed web products. I manage the full stack with clean architecture and reusable code.
+        </p>
+        <p>
+          My focus is building reliable, scalable products with React/Next.js and backend systems that
+          support real users and growing startups.
+        </p>
+      </section>
 
-        <section id="contact" className="cta">
+      <section className="grid" id="projects">
+        {cards.map((card) => (
+          <article key={card.title} className="card">
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="cta" id="contact">
+        <div className="cta-inner">
           <h2>FROM IDEA TO EXECUTION</h2>
-          <h3>LET&apos;S BUILD SOMETHING REAL</h3>
-          <a href="mailto:artin.krasniqi100@gmail.com" className="btn primary">Get in touch</a>
-          <p>Available for full-time roles and freelance projects.</p>
+          <h3>LET&apos;S BUILD SOMETHING REAL!</h3>
+          <a className="btn solid" href="mailto:artin.krasniqi100@gmail.com">Get in touch</a>
+          <p>Available for full-time roles and selective freelance projects.</p>
           <p>Prishtinë, Kosovë · +383 49 732 298 · github.com/artin64</p>
-          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="resume-link">View CV</a>
-        </section>
-      </main>
+          <a className="resume" href="/resume.pdf" target="_blank" rel="noreferrer">View CV</a>
+        </div>
+      </section>
 
       <footer>
-        © 2026 Artin Krasniqi. All rights reserved.
+        <div>© 2026 Artin Krasniqi. All rights reserved.</div>
       </footer>
     </div>
   )
