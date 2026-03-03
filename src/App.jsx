@@ -1,146 +1,155 @@
 import './App.css'
 
-const services = [
-  'Full-Stack Web Development',
-  'SaaS Product Architecture',
-  'Performance Optimization',
-  'UI Engineering & Design Systems',
+const nav = [
+  ['About', '#about'],
+  ['Projects', '#projects'],
+  ['Uses', '#uses'],
+  ['Contact', '#contact'],
 ]
 
 const projects = [
   {
-    title: 'AI Document Assistant',
-    description:
-      'Product-focused platform concept for AI-powered document workflows, dashboard UX, and scalable backend foundations.',
-    tags: ['Next.js', 'TypeScript', 'AI', 'SaaS'],
+    name: 'AI Document Assistant',
+    type: 'Full-Stack Product',
+    summary:
+      'AI-powered workspace for document workflows with clean dashboard UX, reusable components, and scalable backend structure.',
+    stack: ['React', 'Node.js', 'PostgreSQL', 'AI'],
   },
   {
-    title: 'Team Issue Management System',
-    description:
-      'End-to-end issue tracking workflow with auth, prioritization, role-based actions, and clean team collaboration flows.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Auth'],
+    name: 'Team Issue Management Platform',
+    type: 'SaaS App',
+    summary:
+      'Production-style issue tracking with authentication, role-based access, sprint flow, and optimized admin + user experiences.',
+    stack: ['Next.js', 'TypeScript', 'Express', 'Auth'],
   },
   {
-    title: 'High-Performance Product Website',
-    description:
-      'Conversion-oriented web experience with advanced responsiveness, fast loading, and SEO-ready structure.',
-    tags: ['Vite', 'React', 'CSS', 'Performance'],
+    name: 'High-Performance Product Website',
+    type: 'Brand + Conversion',
+    summary:
+      'Modern launch site with premium motion, lightning-fast loading, and SEO-first architecture designed to convert traffic.',
+    stack: ['Vite', 'React', 'CSS', 'Performance'],
   },
 ]
 
-const stack = [
-  'React',
-  'Next.js',
-  'TypeScript',
-  'Node.js',
-  'Express',
-  'PostgreSQL',
-  'Tailwind CSS',
-  'GitHub Actions',
+const uses = [
+  'Visual Studio Code',
+  'GitHub + GitHub Actions',
+  'Postman',
+  'Figma',
+  'Vercel / Netlify',
+  'Notion',
 ]
 
 export default function App() {
   return (
-    <div className="site">
-      <div className="bg-orb bg-orb-1" />
-      <div className="bg-orb bg-orb-2" />
+    <div className="page" id="home">
+      <div className="noise" />
+      <div className="glow glow-left" />
+      <div className="glow glow-right" />
 
-      <header className="hero" id="home">
-        <nav className="nav glass">
-          <a href="#home" className="logo">AK</a>
-          <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#stack">Stack</a>
-            <a href="#contact">Contact</a>
+      <header className="hero-shell">
+        <nav className="topbar glass">
+          <a className="brand" href="#home">AK</a>
+          <div className="links">
+            {nav.map(([label, href]) => (
+              <a key={label} href={href}>{label}</a>
+            ))}
           </div>
-          <a href="mailto:artin.krasniqi100@gmail.com" className="nav-cta">Let&apos;s Talk</a>
+          <a className="cta" href="/resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
         </nav>
 
-        <div className="hero-content">
-          <p className="eyebrow">AVAILABLE FOR FREELANCE & FULL-TIME</p>
+        <section className="hero">
+          <p className="status">● AVAILABLE FOR FREELANCE / FULL-TIME</p>
           <h1>
-            I build premium digital products
-            <span>that drive real growth.</span>
+            Artin Krasniqi
+            <span>Full-Stack Developer</span>
           </h1>
-          <p className="lead">
-            I&apos;m <strong>Artin Krasniqi</strong>, a Full-Stack Developer crafting modern,
-            high-performance web experiences from idea to deployment.
+          <p className="intro">
+            I build premium, engineering-driven web products with clean architecture,
+            high performance, and modern interface systems that scale.
           </p>
 
           <div className="hero-actions">
-            <a className="btn btn-primary" href="#projects">View Projects</a>
-            <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noreferrer">Open CV</a>
+            <a href="#projects" className="btn btn-gold">View Projects</a>
+            <a href="#contact" className="btn btn-ghost">Get in Touch</a>
           </div>
 
-          <div className="hero-metrics glass">
-            <div><strong>3+</strong><span>Years building web products</span></div>
-            <div><strong>30+</strong><span>Delivered UI components & flows</span></div>
-            <div><strong>100%</strong><span>Focus on quality and performance</span></div>
+          <div className="metrics glass">
+            <article>
+              <strong>3+ Years</strong>
+              <span>Building production-ready products</span>
+            </article>
+            <article>
+              <strong>30+</strong>
+              <span>UI modules, pages, and product flows delivered</span>
+            </article>
+            <article>
+              <strong>100%</strong>
+              <span>Focused on quality, speed, and user experience</span>
+            </article>
           </div>
-        </div>
+        </section>
       </header>
 
-      <section className="ticker-wrap">
-        <div className="ticker">
-          {[...services, ...services].map((s, i) => <span key={`${s}-${i}`}>{s} ✦</span>)}
-        </div>
-      </section>
-
       <main>
-        <section id="about" className="section about">
-          <div>
-            <p className="section-label">ABOUT ME</p>
-            <h2>Engineering clarity from complexity.</h2>
-            <p>
-              I specialize in building robust full-stack products with clean architecture,
-              maintainable code, and polished user experiences. My work blends practical
-              engineering with thoughtful interface decisions.
-            </p>
-            <p>
-              Based in Prishtinë, Kosovë — open to remote collaboration and ambitious product teams.
-            </p>
+        <section id="about" className="section">
+          <p className="eyebrow">ABOUT</p>
+          <div className="split">
+            <div>
+              <h2>Engineering clarity from complexity.</h2>
+              <p>
+                I specialize in robust full-stack solutions, blending strong backend
+                foundations with polished frontend execution. My process is focused,
+                clean, and built for long-term maintainability.
+              </p>
+              <p>
+                Based in Prishtinë, Kosovë. Open to remote collaboration, startup teams,
+                and ambitious product challenges.
+              </p>
+            </div>
+            <aside className="profile-card glass">
+              <h3>Profile</h3>
+              <ul>
+                <li><span>Role</span><b>Full-Stack Developer</b></li>
+                <li><span>Location</span><b>Prishtinë, Kosovë</b></li>
+                <li><span>Email</span><b>artin.krasniqi100@gmail.com</b></li>
+                <li><span>Phone</span><b>+383 49 732 298</b></li>
+                <li><span>GitHub</span><b>github.com/artin64</b></li>
+              </ul>
+            </aside>
           </div>
-          <aside className="about-card glass">
-            <h3>Quick Profile</h3>
-            <ul>
-              <li><span>Role</span><strong>Full-Stack Developer</strong></li>
-              <li><span>Location</span><strong>Prishtinë, Kosovë</strong></li>
-              <li><span>Email</span><strong>artin.krasniqi100@gmail.com</strong></li>
-              <li><span>Phone</span><strong>+383 49 732 298</strong></li>
-            </ul>
-          </aside>
         </section>
 
         <section id="projects" className="section">
-          <p className="section-label">FEATURED WORK</p>
-          <h2>Selected projects and product builds.</h2>
+          <p className="eyebrow">PROJECTS</p>
+          <h2>Selected builds</h2>
           <div className="project-grid">
             {projects.map((project) => (
-              <article key={project.title} className="project-card glass">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="tags">
-                  {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+              <article className="project-card glass" key={project.name}>
+                <small>{project.type}</small>
+                <h3>{project.name}</h3>
+                <p>{project.summary}</p>
+                <div className="chips">
+                  {project.stack.map((item) => <span key={item}>{item}</span>)}
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="stack" className="section">
-          <p className="section-label">TECH STACK</p>
-          <h2>Tools I use to ship reliable software.</h2>
-          <div className="stack-grid">
-            {stack.map((item) => <span key={item} className="stack-item">{item}</span>)}
+        <section id="uses" className="section">
+          <p className="eyebrow">USES</p>
+          <h2>Tools I rely on daily</h2>
+          <div className="chips uses-list">
+            {uses.map((tool) => <span key={tool}>{tool}</span>)}
           </div>
         </section>
 
-        <section id="contact" className="contact section glass">
-          <p className="section-label">CONTACT</p>
+        <section id="contact" className="section contact glass">
+          <p className="eyebrow">CONTACT</p>
           <h2>Let&apos;s build something serious.</h2>
-          <p className="contact-text">
-            I help founders and teams turn ideas into scalable products with strong UX and robust code.
+          <p>
+            I help founders and teams ship fast, scalable, and premium web products.
           </p>
           <div className="contact-links">
             <a href="mailto:artin.krasniqi100@gmail.com">artin.krasniqi100@gmail.com</a>
@@ -151,7 +160,7 @@ export default function App() {
       </main>
 
       <footer>
-        <p>© 2026 Artin Krasniqi. Crafted with precision.</p>
+        <p>© {new Date().getFullYear()} Artin Krasniqi. Matte Black × Gold Edition.</p>
       </footer>
     </div>
   )
