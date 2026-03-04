@@ -4,6 +4,7 @@ import './App.css'
 const navLinks = [
   ['Home', '#home'],
   ['Projects', '#projects'],
+  ['Services', '#services'],
   ['Process', '#process'],
   ['About', '#about'],
   ['Contact', '#contact'],
@@ -15,9 +16,31 @@ const skills = [
   'TypeScript',
   'Node.js',
   'PostgreSQL',
-  'Tailwind CSS',
-  'REST APIs',
+  'Tailwind',
+  'Framer Motion',
   'Performance',
+]
+
+const stats = [
+  ['30+', 'Projects Delivered'],
+  ['3+', 'Years Experience'],
+  ['99%', 'Client Satisfaction'],
+  ['24h', 'Avg. Response Time'],
+]
+
+const services = [
+  {
+    title: 'Full-Stack Development',
+    text: 'From architecture to deployment with clean, scalable implementation.',
+  },
+  {
+    title: 'Premium Frontend UI',
+    text: 'High-end interfaces with strong visual hierarchy and conversion-focused flow.',
+  },
+  {
+    title: 'Optimization & Security',
+    text: 'Speed, accessibility, and secure engineering decisions from day one.',
+  },
 ]
 
 const projects = [
@@ -25,38 +48,41 @@ const projects = [
     title: 'AI Document Assistant',
     problem: 'Teams were wasting time searching and organizing large document sets.',
     role: 'Product architecture, full-stack implementation, deployment',
-    outcome: 'Reduced average document lookup time and improved team workflow speed.',
+    outcome: 'Faster document workflows and smoother internal collaboration.',
     stack: ['React', 'Node.js', 'PostgreSQL', 'AI APIs'],
   },
   {
     title: 'Issue Management SaaS',
-    problem: 'A startup needed one clear workflow for tasks, sprints, and team visibility.',
-    role: 'Frontend lead + backend integration + role-based permissions',
-    outcome: 'Shipped a production-ready MVP with cleaner delivery process and tracking.',
+    problem: 'A startup needed one clear workflow for tasks, sprints, and reporting.',
+    role: 'Frontend lead, backend integration, role-based permissions',
+    outcome: 'Production MVP that improved team visibility and delivery consistency.',
     stack: ['Next.js', 'TypeScript', 'Auth', 'Analytics'],
   },
   {
-    title: 'Conversion-Focused Company Website',
-    problem: 'The old site looked outdated and was not converting visitors into leads.',
+    title: 'Conversion-Focused Company Site',
+    problem: 'Old website had weak brand trust and low conversion potential.',
     role: 'UX strategy, UI system, responsive implementation, SEO setup',
-    outcome: 'Delivered faster loading pages and stronger first-impression trust.',
+    outcome: 'Cleaner positioning and stronger first impression across devices.',
     stack: ['Vite', 'React', 'SEO', 'Motion'],
   },
 ]
 
 const processSteps = [
-  {
-    title: 'Discovery',
-    text: 'I clarify business goals, target users, and success metrics before writing code.',
-  },
-  {
-    title: 'Build',
-    text: 'I ship clean, scalable implementation with strong UI standards and secure architecture.',
-  },
-  {
-    title: 'Launch & Improve',
-    text: 'After release, I monitor performance, fix bottlenecks, and iterate quickly.',
-  },
+  ['01', 'Discovery', 'Clarify business goals, audience, and priorities before building.'],
+  ['02', 'Build', 'Ship scalable code and polished UI with clear product logic.'],
+  ['03', 'Launch', 'Deploy, monitor, optimize, and iterate based on real usage.'],
+]
+
+const timeline = [
+  ['2026', 'Scaling premium client projects', 'Advanced frontend systems + productized delivery process.'],
+  ['2025', 'Product collaboration focus', 'Built real SaaS components, workflows, and role systems.'],
+  ['2024', 'Deep full-stack execution', 'Expanded backend architecture and deployment skills.'],
+]
+
+const testimonials = [
+  '“Fast execution and extremely clean result. Exactly what we needed.”',
+  '“Strong communication, very reliable delivery, premium quality output.”',
+  '“Not just design — real product thinking and solid engineering.”',
 ]
 
 function useReveal() {
@@ -79,12 +105,14 @@ function useReveal() {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-
   useReveal()
 
   return (
     <div className="page" id="home">
-      <header className="header">
+      <div className="bg-blur blur-1" />
+      <div className="bg-blur blur-2" />
+
+      <header className="header glass">
         <a className="brand" href="#home">Artin Krasniqi</a>
 
         <button
@@ -106,11 +134,12 @@ export default function App() {
 
       <main>
         <section className="hero reveal">
-          <p className="eyebrow">WEB DEVELOPER · PRISHTINË, KOSOVË</p>
-          <h1>I build fast, modern websites and web apps that actually convert.</h1>
+          <span className="pill">Available for freelance & remote roles</span>
+          <p className="eyebrow">FULL-STACK WEB DEVELOPER · PRISHTINË, KOSOVË</p>
+          <h1>I build premium websites and web apps that feel fast, modern, and trustworthy.</h1>
           <p className="lead">
-            I help founders and businesses launch clean, scalable digital products with strong UI, solid performance,
-            and clear business value.
+            I help founders and businesses launch scalable digital products with clean code,
+            conversion-focused UI, and excellent cross-device performance.
           </p>
 
           <div className="hero-actions">
@@ -125,13 +154,34 @@ export default function App() {
           </div>
         </section>
 
+        <section className="stats reveal" aria-label="Key numbers">
+          {stats.map(([value, label], i) => (
+            <article key={label} className="card pop" style={{ animationDelay: `${i * 110}ms` }}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </article>
+          ))}
+        </section>
+
+        <section className="section reveal" id="services">
+          <h2>Services</h2>
+          <p className="section-intro">End-to-end delivery with quality that reflects your brand.</p>
+          <div className="grid-3">
+            {services.map((service) => (
+              <article key={service.title} className="card hover-lift">
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="section reveal" id="projects">
           <h2>Selected Projects</h2>
-          <p className="section-intro">Quality over quantity: focused case studies with clear impact.</p>
-
-          <div className="project-grid">
+          <p className="section-intro">Focused case studies with clear outcomes.</p>
+          <div className="grid-3">
             {projects.map((project) => (
-              <article key={project.title} className="card">
+              <article key={project.title} className="card hover-lift project-card">
                 <h3>{project.title}</h3>
                 <p><strong>Problem:</strong> {project.problem}</p>
                 <p><strong>My role:</strong> {project.role}</p>
@@ -146,12 +196,12 @@ export default function App() {
 
         <section className="section reveal" id="process">
           <h2>How I Work</h2>
-          <div className="process-grid">
-            {processSteps.map((step, idx) => (
-              <article key={step.title} className="card process">
-                <span className="step">0{idx + 1}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
+          <div className="grid-3">
+            {processSteps.map(([num, title, text]) => (
+              <article key={num} className="card hover-lift process-card">
+                <span className="step">{num}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
               </article>
             ))}
           </div>
@@ -160,21 +210,40 @@ export default function App() {
         <section className="section reveal" id="about">
           <h2>About Me</h2>
           <p>
-            I’m Artin Krasniqi, a full-stack web developer focused on building practical, high-quality products.
-            My work combines clean engineering with product thinking, so clients get more than just “nice visuals”.
-          </p>
-          <p>
-            I work across frontend, backend, and deployment, with a strong focus on responsive design, speed,
-            maintainability, and real-world usability.
+            I’m Artin Krasniqi, a full-stack developer who combines engineering discipline with product thinking.
+            I focus on building systems that look sharp, scale cleanly, and solve real business problems.
           </p>
           <div className="chips skill-chips">
             {skills.map((skill) => <span key={skill}>{skill}</span>)}
           </div>
+
+          <div className="timeline">
+            {timeline.map(([year, title, desc]) => (
+              <article key={year} className="timeline-item card hover-lift">
+                <div>
+                  <span className="year">{year}</span>
+                  <h3>{title}</h3>
+                  <p>{desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section reveal">
+          <h2>Client Feedback</h2>
+          <div className="grid-3">
+            {testimonials.map((item, i) => (
+              <article key={i} className="card hover-lift">
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="section contact reveal" id="contact">
-          <h2>Let’s Build Something Serious</h2>
-          <p>If you need a website or web app that looks professional and performs well, message me directly.</p>
+          <h2>Ready to Upgrade Your Online Presence?</h2>
+          <p>Tell me what you want to build and I’ll give you a clear execution plan.</p>
           <div className="hero-actions">
             <a className="btn btn-primary" href="mailto:artin.krasniqi100@gmail.com">Email Me</a>
             <a className="btn btn-ghost" href="https://github.com/artin64" target="_blank" rel="noreferrer">View GitHub</a>
