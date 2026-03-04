@@ -14,62 +14,62 @@ const navLinks = [
 ]
 
 const skills = [
-  ['💻', 'HTML / CSS / JavaScript', 95],
-  ['⚛️', 'React & Tailwind CSS', 93],
-  ['🟣', 'C# & .NET', 86],
-  ['🐍', 'Python', 84],
-  ['🗄️', 'SQL & Database Design', 91],
-  ['🔐', 'Cybersecurity (Basics)', 80],
-  ['🌐', 'WordPress Development', 85],
-  ['📊', 'Business & Financial Analysis', 88],
-  ['📣', 'Social Media Management', 86],
+  ['HTML / CSS / JavaScript', 95],
+  ['React & Tailwind CSS', 93],
+  ['C# & .NET', 87],
+  ['Python', 85],
+  ['SQL & Database Design', 92],
+  ['Cybersecurity Basics', 80],
+  ['WordPress Development', 84],
+  ['Financial & Business Analysis', 88],
+  ['Content Strategy & Writing', 90],
 ]
 
 const services = [
-  ['🌍', 'Web Development', 'Modern, scalable websites and web apps with premium UI quality.'],
-  ['🧱', 'Database Design', 'Clean and efficient database structures for business-critical systems.'],
-  ['🛡️', 'Cybersecurity Basics', 'Securing accounts, websites, and workflows with practical safeguards.'],
-  ['🎯', 'Career Training', 'Certified training for students, youth, and professionals.'],
-  ['📈', 'Business & Economics', 'Strategic direction with economic and management insight.'],
-  ['✍️', 'Content Writing', 'Professional content strategy and writing for digital platforms.'],
+  ['Web Development', 'Modern websites and web applications with scalable architecture and premium execution.'],
+  ['Database Design', 'Reliable and efficient relational data models tailored to real business workflows.'],
+  ['Cybersecurity Basics', 'Practical security hardening for websites, systems, and day-to-day digital operations.'],
+  ['Career Training', 'Professional guidance and certified development support for students and professionals.'],
+  ['Business & Economics', 'Strategic insight focused on growth, optimization, and measurable outcomes.'],
+  ['Social Media & Content', 'Structured content planning and communication that strengthens digital presence.'],
 ]
 
 const projects = [
-  ['Elite Portfolio', 'Web', 'Luxury-grade personal branding platform with animated storytelling.'],
-  ['Business Insight Dashboard', 'Database', 'Executive dashboard with analytics and data visualization.'],
-  ['Agency WordPress Platform', 'WordPress', 'High-conversion service website for growth-focused teams.'],
-  ['Interactive Product UI', 'JS', 'Component-driven frontend with smooth interactions and performance.'],
+  ['Elite Portfolio Platform', 'Web', 'High-end portfolio with smooth motion, structured information architecture, and polished UX.'],
+  ['Business Intelligence Dashboard', 'Database', 'Executive-level analytics interface with decision-focused reporting modules.'],
+  ['Agency WordPress System', 'WordPress', 'Conversion-oriented company website with scalable content and service funnels.'],
+  ['Interactive Product Interface', 'JS', 'Fast frontend experience with reusable component patterns and clean interaction states.'],
 ]
 
-const experiences = [
-  ['2025 — Present', 'Full Stack Developer', 'Delivering robust applications aligned with business outcomes.'],
-  ['2024 — 2025', 'Web & Database Specialist', 'Built responsive products and optimized relational data architecture.'],
-  ['2023 — 2024', 'Creative Technology Freelancer', 'Delivered premium frontend experiences and content systems.'],
+const experience = [
+  ['2025 — Present', 'Full Stack Developer', 'Developing robust applications aligned with technical quality and business objectives.'],
+  ['2024 — 2025', 'Web & Database Specialist', 'Delivered responsive platforms and optimized data architecture for operational efficiency.'],
+  ['2023 — 2024', 'Creative Technology Freelancer', 'Built modern digital interfaces focused on usability, clarity, and visual precision.'],
 ]
 
 const pricing = [
-  ['Basic', '€249', ['Landing page / portfolio', 'Responsive design', 'Fast deployment']],
-  ['Premium', '€699', ['Business website', 'Premium animations', 'Database/contact integrations']],
-  ['Ultra', '€1499', ['Full-stack solution', 'Advanced optimization', 'Priority support']],
+  ['Basic', '€249', ['Single-page website', 'Responsive layout', 'Clean premium styling']],
+  ['Premium', '€699', ['Multi-section business site', 'Advanced animations', 'Integrations + optimization']],
+  ['Ultra', '€1499', ['Full-stack application', 'Architecture + security', 'Priority delivery & support']],
 ]
 
-const terminalMap = {
+const terminalCommands = {
   help: 'commands: skills | services | projects | contact | offers | clear',
-  skills: 'Core: React, JavaScript, C#, SQL, Python, Cybersecurity Basics.',
-  services: 'web-dev, database-design, cybersecurity, training, business, content.',
-  projects: 'Elite Portfolio, Business Dashboard, Agency WordPress, Product UI.',
+  skills: 'Core stack: React, JavaScript, C#, SQL, Python, WordPress.',
+  services: 'web-development, database-design, cybersecurity, training, business, content.',
+  projects: 'elite-portfolio, intelligence-dashboard, wordpress-system, product-interface.',
   offers: 'basic (€249), premium (€699), ultra (€1499)',
-  contact: 'email: artin.krasniqi100@gmail.com | socials in Contact section',
+  contact: 'email: artin.krasniqi100@gmail.com',
 }
 
 function useReveal() {
   useEffect(() => {
-    const elements = document.querySelectorAll('.reveal')
+    const nodes = document.querySelectorAll('.reveal')
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('visible')),
       { threshold: 0.12 }
     )
-    elements.forEach((el) => observer.observe(el))
+    nodes.forEach((node) => observer.observe(node))
     return () => observer.disconnect()
   }, [])
 }
@@ -81,18 +81,13 @@ function TiltCard({ children, className = '' }) {
     const rect = e.currentTarget.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width
     const y = (e.clientY - rect.top) / rect.height
-    const rx = (0.5 - y) * 8
-    const ry = (x - 0.5) * 10
-    setStyle({ transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)` })
+    const rx = (0.5 - y) * 6
+    const ry = (x - 0.5) * 8
+    setStyle({ transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)` })
   }
 
   return (
-    <article
-      className={`card premium-border tilt ${className}`}
-      style={style}
-      onMouseMove={onMove}
-      onMouseLeave={() => setStyle({})}
-    >
+    <article className={`card frame tilt ${className}`} style={style} onMouseMove={onMove} onMouseLeave={() => setStyle({})}>
       {children}
     </article>
   )
@@ -100,47 +95,47 @@ function TiltCard({ children, className = '' }) {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [scroll, setScroll] = useState(0)
+  const [scrollProgress, setScrollProgress] = useState(0)
   const [filter, setFilter] = useState('All')
-  const [terminalInput, setTerminalInput] = useState('')
-  const [terminalLog, setTerminalLog] = useState(['gold-shell v1.0 — type help'])
+  const [termInput, setTermInput] = useState('')
+  const [termLog, setTermLog] = useState(['gold-terminal ready. type help'])
   const [form, setForm] = useState({ loading: false, ok: false, err: '' })
 
   useReveal()
 
   useEffect(() => {
     const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight
-      setScroll(max > 0 ? (window.scrollY / max) * 100 : 0)
+      const h = document.documentElement.scrollHeight - window.innerHeight
+      setScrollProgress(h > 0 ? (window.scrollY / h) * 100 : 0)
     }
     onScroll()
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const categories = ['All', 'Web', 'Database', 'WordPress', 'JS']
+  const filters = ['All', 'Web', 'Database', 'WordPress', 'JS']
   const filteredProjects = useMemo(
-    () => projects.filter((item) => filter === 'All' || item[1] === filter),
+    () => projects.filter((p) => filter === 'All' || p[1] === filter),
     [filter]
   )
 
-  const runCommand = (e) => {
+  const onTerminal = (e) => {
     e.preventDefault()
-    const command = terminalInput.trim().toLowerCase()
-    if (!command) return
+    const cmd = termInput.trim().toLowerCase()
+    if (!cmd) return
 
-    if (command === 'clear') {
-      setTerminalLog(['terminal cleared'])
-      setTerminalInput('')
+    if (cmd === 'clear') {
+      setTermLog(['terminal cleared'])
+      setTermInput('')
       return
     }
 
-    const out = terminalMap[command] || `unknown command: ${command}`
-    setTerminalLog((prev) => [...prev, `> ${command}`, out])
-    setTerminalInput('')
+    const out = terminalCommands[cmd] || `unknown command: ${cmd}`
+    setTermLog((prev) => [...prev, `> ${cmd}`, out])
+    setTermInput('')
   }
 
-  const submit = async (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
 
@@ -151,7 +146,7 @@ export default function App() {
         headers: { Accept: 'application/json' },
         body: data,
       })
-      if (!res.ok) throw new Error('send fail')
+      if (!res.ok) throw new Error('failed')
       e.currentTarget.reset()
       setForm({ loading: false, ok: true, err: '' })
     } catch {
@@ -161,56 +156,48 @@ export default function App() {
 
   return (
     <div className='page' id='home'>
-      <div className='progress' style={{ width: `${scroll}%` }} />
-      <div className='ambient a1' />
-      <div className='ambient a2' />
-      <div className='ambient a3' />
+      <div className='scroll-progress' style={{ width: `${scrollProgress}%` }} />
+      <div className='ambient ambient-a' />
+      <div className='ambient ambient-b' />
+      <div className='ambient ambient-c' />
 
-      <header className='header glass premium-border'>
-        <a className='brand' href='#home'>ARTIN · ELITE</a>
-        <button className='chip mobile' onClick={() => setMenuOpen((v) => !v)}>☰</button>
+      <header className='header glass frame'>
+        <a href='#home' className='brand'>ARTIN KRASNIQI</a>
+        <button className='mobile-btn' onClick={() => setMenuOpen((s) => !s)}>Menu</button>
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map(([name, href]) => (
-            <a key={name} href={href} onClick={() => setMenuOpen(false)}>{name}</a>
+          {navLinks.map(([n, h]) => (
+            <a key={n} href={h} onClick={() => setMenuOpen(false)}>{n}</a>
           ))}
         </nav>
       </header>
 
       <main>
         <section className='hero reveal'>
-          <p className='eyebrow'>PREMIUM FULL STACK EXPERIENCE</p>
-          <h1>Gold-standard digital engineering with elite visual precision.</h1>
-          <p className='lead'>
-            Architecting modern products where performance, business logic, and luxury-level UI craftsmanship meet.
-          </p>
+          <p className='kicker'>FULL STACK · PREMIUM ENGINEERING</p>
+          <h1>Modern gold-standard portfolio experience, crafted for precision and impact.</h1>
+          <p className='lead'>I build digital systems that combine elegant interface design, high performance, and strong business alignment.</p>
           <div className='hero-actions'>
-            <a className='btn primary' href='#projects'>View Projects</a>
-            <a className='btn ghost' href='#contact'>Let’s Work</a>
+            <a className='btn btn-primary' href='#projects'>View Projects</a>
+            <a className='btn btn-ghost' href='#contact'>Start a Project</a>
           </div>
         </section>
 
         <section id='about' className='section reveal'>
           <h2>About Me</h2>
-          <div className='card premium-border about'>
-            <p>
-              Hello! I'm a passionate Full Stack developer with extensive experience in database design, cybersecurity basics, and building scalable web solutions. I combine technical expertise with strong skills in business management, finance, and data analysis to create applications that deliver real impact for users and organizations.
-            </p>
-            <p>
-              Throughout my projects, I have honed my abilities in managing products, optimizing workflows, and analyzing complex datasets, ensuring that every solution is not only technically robust but also aligned with business objectives. I thrive on solving challenging problems and turning ideas into efficient, user-friendly applications.
-            </p>
-            <p>
-              I believe in continuous learning, embracing innovation, and improving with each project. By blending creativity, technical skills, and strategic thinking, I consistently deliver high-quality results that make a tangible difference.
-            </p>
+          <div className='card frame about'>
+            <p>Hello! I'm a passionate Full Stack developer with extensive experience in database design, cybersecurity basics, and building scalable web solutions. I combine technical expertise with strong skills in business management, finance, and data analysis to create applications that deliver real impact for users and organizations.</p>
+            <p>Throughout my projects, I have honed my abilities in managing products, optimizing workflows, and analyzing complex datasets, ensuring that every solution is not only technically robust but also aligned with business objectives. I thrive on solving challenging problems and turning ideas into efficient, user-friendly applications.</p>
+            <p>I believe in continuous learning, embracing innovation, and improving with each project. By blending creativity, technical skills, and strategic thinking, I consistently deliver high-quality results that make a tangible difference.</p>
           </div>
         </section>
 
         <section id='skills' className='section reveal'>
           <h2>Skills</h2>
-          <div className='grid-3'>
-            {skills.map(([icon, name, level]) => (
+          <div className='grid grid-3'>
+            {skills.map(([name, level]) => (
               <TiltCard key={name}>
-                <div className='head-skill'>
-                  <span>{icon} {name}</span>
+                <div className='skill-head'>
+                  <h3>{name}</h3>
                   <strong>{level}%</strong>
                 </div>
                 <div className='bar'><div style={{ width: `${level}%` }} /></div>
@@ -220,21 +207,14 @@ export default function App() {
         </section>
 
         <section id='services' className='section reveal'>
-          <h2>What I Offer</h2>
-          <div className='grid-3'>
-            {services.map(([icon, title, text]) => (
-              <div className='flip-wrap' key={title}>
-                <div className='flip'>
-                  <article className='card premium-border flip-face front'>
-                    <div className='icon'>{icon}</div>
-                    <h3>{title}</h3>
-                  </article>
-                  <article className='card premium-border flip-face back'>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </article>
-                </div>
-              </div>
+          <h2>Services</h2>
+          <div className='grid grid-3'>
+            {services.map(([title, text]) => (
+              <TiltCard key={title} className='service-card'>
+                <span className='service-line' />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </TiltCard>
             ))}
           </div>
         </section>
@@ -242,16 +222,16 @@ export default function App() {
         <section id='projects' className='section reveal'>
           <h2>Projects</h2>
           <div className='filters'>
-            {categories.map((cat) => (
-              <button key={cat} className={`chip ${cat === filter ? 'active' : ''}`} onClick={() => setFilter(cat)}>{cat}</button>
+            {filters.map((x) => (
+              <button key={x} className={`filter-btn ${x === filter ? 'active' : ''}`} onClick={() => setFilter(x)}>{x}</button>
             ))}
           </div>
-          <div className='grid-2'>
-            {filteredProjects.map(([title, category, description]) => (
+          <div className='grid grid-2'>
+            {filteredProjects.map(([title, category, text]) => (
               <TiltCard key={title}>
-                <p className='badge'>{category}</p>
+                <p className='meta'>{category}</p>
                 <h3>{title}</h3>
-                <p>{description}</p>
+                <p>{text}</p>
               </TiltCard>
             ))}
           </div>
@@ -259,10 +239,10 @@ export default function App() {
 
         <section id='experience' className='section reveal'>
           <h2>Experience</h2>
-          <div className='grid-3'>
-            {experiences.map(([date, role, text]) => (
+          <div className='grid grid-3'>
+            {experience.map(([date, role, text]) => (
               <TiltCard key={role}>
-                <p className='badge'>{date}</p>
+                <p className='meta'>{date}</p>
                 <h3>{role}</h3>
                 <p>{text}</p>
               </TiltCard>
@@ -272,13 +252,13 @@ export default function App() {
 
         <section id='pricing' className='section reveal'>
           <h2>Pricing</h2>
-          <div className='grid-3'>
-            {pricing.map(([plan, price, list]) => (
-              <TiltCard key={plan} className='pricing-card'>
-                <h3>{plan}</h3>
+          <div className='grid grid-3'>
+            {pricing.map(([name, price, features]) => (
+              <TiltCard key={name} className='price-card'>
+                <h3>{name}</h3>
                 <p className='price'>{price}</p>
-                <ul>{list.map((x) => <li key={x}>{x}</li>)}</ul>
-                <a className='btn primary' href='#contact'>Choose {plan}</a>
+                <ul>{features.map((f) => <li key={f}>{f}</li>)}</ul>
+                <a href='#contact' className='btn btn-primary'>Choose {name}</a>
               </TiltCard>
             ))}
           </div>
@@ -286,33 +266,33 @@ export default function App() {
 
         <section id='terminal' className='section reveal'>
           <h2>Interactive Terminal</h2>
-          <div className='card premium-border terminal'>
-            {terminalLog.map((line, idx) => <p key={`${line}-${idx}`}>{line}</p>)}
-            <form onSubmit={runCommand} className='terminal-form'>
+          <div className='card frame terminal'>
+            {termLog.map((line, i) => <p key={`${line}-${i}`}>{line}</p>)}
+            <form onSubmit={onTerminal} className='terminal-form'>
               <span>$</span>
-              <input value={terminalInput} onChange={(e) => setTerminalInput(e.target.value)} placeholder='help / skills / services / projects / contact / offers / clear' />
+              <input value={termInput} onChange={(e) => setTermInput(e.target.value)} placeholder='help | skills | services | projects | contact | offers | clear' />
             </form>
           </div>
         </section>
 
         <section id='contact' className='section reveal'>
           <h2>Contact</h2>
-          <div className='socials'>
-            <a href='https://facebook.com' target='_blank' rel='noreferrer'>📘 Facebook</a>
-            <a href='https://linkedin.com' target='_blank' rel='noreferrer'>💼 LinkedIn</a>
-            <a href='https://twitter.com' target='_blank' rel='noreferrer'>🐦 Twitter/X</a>
-            <a href='https://instagram.com' target='_blank' rel='noreferrer'>📸 Instagram</a>
-            <a href='https://github.com/artin64' target='_blank' rel='noreferrer'>🐙 GitHub</a>
+          <div className='social-row'>
+            <a href='https://facebook.com' target='_blank' rel='noreferrer'>Facebook</a>
+            <a href='https://linkedin.com' target='_blank' rel='noreferrer'>LinkedIn</a>
+            <a href='https://twitter.com' target='_blank' rel='noreferrer'>Twitter / X</a>
+            <a href='https://instagram.com' target='_blank' rel='noreferrer'>Instagram</a>
+            <a href='https://github.com/artin64' target='_blank' rel='noreferrer'>GitHub</a>
           </div>
 
-          <form className='card premium-border contact' onSubmit={submit}>
+          <form className='card frame contact-form' onSubmit={onSubmit}>
             <input type='hidden' name='_subject' value='New portfolio message' />
             <input type='hidden' name='_captcha' value='false' />
             <label>Name<input name='name' required /></label>
             <label>Email<input name='email' type='email' required /></label>
             <label>Message<textarea name='message' rows={5} required /></label>
-            <button className='btn primary' type='submit' disabled={form.loading}>{form.loading ? 'Sending...' : 'Send Message'}</button>
-            {form.ok && <p className='ok'>Message sent successfully ✅</p>}
+            <button className='btn btn-primary' type='submit' disabled={form.loading}>{form.loading ? 'Sending...' : 'Send Message'}</button>
+            {form.ok && <p className='ok'>Message sent successfully.</p>}
             {form.err && <p className='err'>{form.err}</p>}
           </form>
         </section>
