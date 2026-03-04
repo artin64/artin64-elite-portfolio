@@ -76,6 +76,12 @@ const testimonials = [
   ['Strong blend of design thinking and technical implementation.', 'Client · Agency Partner'],
 ]
 
+const pricing = [
+  ['Basic', '€249', ['Single-page website', 'Responsive layout', 'Clean premium styling']],
+  ['Premium', '€699', ['Multi-section business site', 'Advanced animations', 'Integrations + optimization']],
+  ['Ultra', '€1499', ['Full-stack application', 'Architecture + security', 'Priority delivery & support']],
+]
+
 const iconMap = {
   code: 'M4 7l8-4 8 4M4 17l8 4 8-4M12 3v18',
   db: 'M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zm0 6c0 1.7 3.6 3 8 3s8-1.3 8-3m-16 0v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6',
