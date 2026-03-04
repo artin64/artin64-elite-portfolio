@@ -7,7 +7,7 @@ const navLinks = [
   ['Skills', '#skills'],
   ['Services', '#services'],
   ['Projects', '#projects'],
-  ['Experience', '#experience'],
+  ['Awards', '#awards'],
   ['Testimonials', '#testimonials'],
   ['Contact', '#contact'],
 ]
@@ -26,54 +26,49 @@ const skills = [
 
 const services = [
   ['code', 'Web Development', 'Modern websites and full-stack applications built for scale and reliability.'],
-  ['db', 'Database Design', 'Structured data architecture that improves performance, accuracy, and maintainability.'],
-  ['shield', 'Cybersecurity Basics', 'Practical security hardening for websites, accounts, and operational workflows.'],
-  ['trend', 'Business & Economics', 'Business strategy and analytical insights aligned with measurable outcomes.'],
+  ['db', 'Database Design', 'Structured data architecture that improves performance and maintainability.'],
+  ['shield', 'Cybersecurity Basics', 'Practical hardening for websites, accounts, and operational workflows.'],
+  ['trend', 'Business & Economics', 'Strategy and analytical insights aligned with measurable outcomes.'],
   ['doc', 'Content & Communication', 'Clear, high-impact writing and content systems for digital platforms.'],
-  ['career', 'Career Training', 'Mentoring and structured training for youth, students, and professionals.'],
+  ['career', 'Career Training', 'Mentoring and structured development support for students and professionals.'],
 ]
 
 const projects = [
   {
     title: 'Elite Portfolio Platform',
     category: 'Web',
-    summary: 'Luxury portfolio experience with modern motion design and clear information hierarchy.',
+    summary: 'Luxury portfolio experience with modern motion design and polished information architecture.',
     result: 'Elevated personal brand presence and stronger first impression.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80',
   },
   {
     title: 'Business Intelligence Dashboard',
     category: 'Database',
-    summary: 'Executive dashboard with KPI reporting, data insights, and role-based data visibility.',
-    result: 'Faster decision-making with clearer performance visibility.',
-    image: 'https://images.unsplash.com/photo-1551281044-8b5bdc5c39b1?auto=format&fit=crop&w=1600&q=80',
+    summary: 'Executive dashboard with KPI reporting, data insights, and role-based visibility.',
+    result: 'Faster decision-making with cleaner reporting workflows.',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1800&q=80',
   },
   {
     title: 'Agency WordPress System',
     category: 'WordPress',
     summary: 'Service-focused website with conversion-driven content architecture and admin control.',
     result: 'Improved lead generation and easier content operations.',
-    image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=1600&q=80',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1800&q=80',
   },
   {
     title: 'Interactive Product Interface',
     category: 'JS',
     summary: 'Fast, component-based frontend with polished interactions and responsive behavior.',
     result: 'Higher engagement and smoother user journeys.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1800&q=80',
   },
 ]
 
-const experience = [
-  ['2025 — Present', 'Full Stack Developer', 'Building robust software products with premium frontend execution and business alignment.'],
-  ['2024 — 2025', 'Web & Database Specialist', 'Designed responsive systems and optimized database structures for operational efficiency.'],
-  ['2023 — 2024', 'Creative Technology Freelancer', 'Delivered high-quality digital interfaces, websites, and content systems for clients.'],
-]
-
-const testimonials = [
-  ['Very clean execution, serious design quality, and excellent communication.', 'Client · Startup Founder'],
-  ['Fast delivery with enterprise-level structure and detail.', 'Client · Business Owner'],
-  ['Strong blend of design thinking and technical implementation.', 'Client · Agency Partner'],
+const awards = [
+  ['Top Frontend Craft', 'Recognized for premium UI and interaction quality in delivered products.'],
+  ['Data Architecture Excellence', 'Strong optimization and reliability in SQL/database-driven systems.'],
+  ['Client Delivery Reliability', 'Consistent on-time delivery with clear communication and quality output.'],
+  ['Creative Digital Execution', 'High-impact presentation quality for business-facing digital solutions.'],
 ]
 
 const pricing = [
@@ -82,7 +77,15 @@ const pricing = [
   ['Ultra', '€1499', ['Full-stack application', 'Architecture + security', 'Priority delivery & support']],
 ]
 
+const testimonials = [
+  ['Very clean execution, serious design quality, and excellent communication.', 'Client · Startup Founder'],
+  ['Fast delivery with enterprise-level structure and detail.', 'Client · Business Owner'],
+  ['Strong blend of design thinking and technical implementation.', 'Client · Agency Partner'],
+  ['Professional, reliable, and highly organized through the whole process.', 'Client · Product Manager'],
+]
+
 const iconMap = {
+  logo: 'M12 2l8 4v6c0 5.5-3.8 9.5-8 12-4.2-2.5-8-6.5-8-12V6l8-4zm-3 8h6m-6 4h4',
   code: 'M4 7l8-4 8 4M4 17l8 4 8-4M12 3v18',
   db: 'M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zm0 6c0 1.7 3.6 3 8 3s8-1.3 8-3m-16 0v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6',
   shield: 'M12 3l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z',
@@ -96,21 +99,16 @@ const iconMap = {
   python: 'M7 7c0-2 2-3 5-3s5 1 5 3v3H7V7zm10 10c0 2-2 3-5 3s-5-1-5-3v-3h10v3z',
   wp: 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18zm-4.2 5.3c.4 0 .7.1 1.1.1-.1.2-.2.6-.2 1l2 5.9 1.2-3.6-.8-2.2c-.2-.5-.3-.8-.3-1.1.6 0 1.2-.1 1.9-.1-.1.2-.2.6-.2 1l2 6 1.1-3.3c.3-1 .5-1.7.5-2.3 0-.8-.3-1.4-.8-1.9a7 7 0 0 1 1.7 4.6 7 7 0 0 1-3.8 6.2l2.3-6.6c.2-.6.4-1.2.4-1.6 0-.4-.1-.8-.2-1.1l-2.7 7.8-.2.6a7 7 0 0 1-4.2-1.4l-2.4-6.6c-.3-.9-.5-1.4-.9-2 .4 0 .8-.1 1.3-.1z',
   brief: 'M3 7h18v12H3zM8 7V5h8v2M3 12h18',
+  social: 'M12 3l7 4v10l-7 4-7-4V7l7-4z',
+  award: 'M12 3l2.3 4.7 5.2.8-3.7 3.6.9 5.1-4.7-2.5-4.7 2.5.9-5.1-3.7-3.6 5.2-.8L12 3z',
 }
 
-function Icon({ name }) {
+function Icon({ name, className = '' }) {
   return (
-    <svg viewBox='0 0 24 24' aria-hidden='true' className='icon'>
+    <svg viewBox='0 0 24 24' aria-hidden='true' className={`icon ${className}`}>
       <path d={iconMap[name]} />
     </svg>
   )
-}
-
-function levelLabel(value) {
-  if (value >= 90) return 'Expert'
-  if (value >= 75) return 'Advanced'
-  if (value >= 60) return 'Intermediate'
-  return 'Beginner'
 }
 
 function useReveal() {
@@ -130,7 +128,7 @@ function TiltCard({ children, className = '' }) {
     const rect = e.currentTarget.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width
     const y = (e.clientY - rect.top) / rect.height
-    setStyle({ transform: `perspective(1000px) rotateX(${(0.5 - y) * 6}deg) rotateY(${(x - 0.5) * 8}deg) translateY(-3px)` })
+    setStyle({ transform: `perspective(1000px) rotateX(${(0.5 - y) * 5}deg) rotateY(${(x - 0.5) * 7}deg) translateY(-2px)` })
   }
 
   return (
@@ -147,6 +145,7 @@ export default function App() {
   const [filter, setFilter] = useState('All')
   const [selected, setSelected] = useState(null)
   const [form, setForm] = useState({ loading: false, ok: false, err: '' })
+  const [loc, setLoc] = useState({ lat: 42.6629, lon: 21.1655 })
 
   useReveal()
 
@@ -167,15 +166,24 @@ export default function App() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (!navigator.geolocation) return
+    navigator.geolocation.getCurrentPosition(
+      (pos) => setLoc({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+      () => {}
+    )
+  }, [])
+
   const categories = ['All', 'Web', 'Database', 'WordPress', 'JS']
-  const filteredProjects = useMemo(
-    () => projects.filter((p) => filter === 'All' || p.category === filter),
-    [filter]
-  )
+  const filteredProjects = useMemo(() => projects.filter((p) => filter === 'All' || p.category === filter), [filter])
 
   const submit = async (e) => {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
+    data.append('_subject', 'New portfolio message from website')
+    data.append('_captcha', 'false')
+    data.append('_template', 'table')
+
     try {
       setForm({ loading: true, ok: false, err: '' })
       const res = await fetch('https://formsubmit.co/ajax/artin.krasniqi100@gmail.com', {
@@ -198,30 +206,29 @@ export default function App() {
       <div className='ambient ambient-b' />
 
       <header className='header glass frame'>
-        <a href='#home' className='brand'>ARTIN KRASNIQI</a>
+        <a href='#home' className='brand'><Icon name='logo' className='brand-icon' /> Artin Krasniqi</a>
         <div className='controls'>
-          <button className='control-btn' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label='Toggle theme'>
-            {theme === 'dark' ? 'Light' : 'Dark'}
-          </button>
-          <button className='mobile-btn' onClick={() => setMenuOpen((v) => !v)} aria-label='Open menu'>Menu</button>
+          <button className='control-btn' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>{theme === 'dark' ? 'Light' : 'Dark'}</button>
+          <button className='mobile-btn' onClick={() => setMenuOpen((v) => !v)}>Menu</button>
         </div>
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map(([name, href]) => (
-            <a key={name} href={href} onClick={() => setMenuOpen(false)}>{name}</a>
-          ))}
+          {navLinks.map(([name, href]) => <a key={name} href={href} onClick={() => setMenuOpen(false)}>{name}</a>)}
         </nav>
       </header>
 
       <main>
         <section className='hero reveal'>
-          <p className='kicker'>FULL STACK · PREMIUM ENGINEERING</p>
-          <h1>Professional portfolio crafted with precision, motion, and modern structure.</h1>
-          <p className='lead'>
-            I design and build scalable digital products where visual elegance, performance, and business value work together.
-          </p>
-          <div className='hero-actions'>
-            <a className='btn btn-primary' href='#projects'>View Projects</a>
-            <a className='btn btn-ghost' href='#contact'>Contact Me</a>
+          <div>
+            <p className='kicker'>FULL STACK · PREMIUM ENGINEERING</p>
+            <h1>Professional portfolio crafted with precision, motion, and modern structure.</h1>
+            <p className='lead'>I design and build scalable digital products where visual elegance, performance, and business value work together.</p>
+            <div className='hero-actions'>
+              <a className='btn btn-primary' href='#projects'>View Projects</a>
+              <a className='btn btn-ghost' href='#contact'>Contact Me</a>
+            </div>
+          </div>
+          <div className='photo-frame frame'>
+            <div className='photo-placeholder'>Your Photo</div>
           </div>
         </section>
 
@@ -240,13 +247,10 @@ export default function App() {
             {skills.map(([icon, name, level]) => (
               <TiltCard key={name}>
                 <div className='skill-head'>
-                  <div className='skill-title'><Icon name={icon} /><h3>{name}</h3></div>
-                  <span className='level' title={levelLabel(level)}>{level}%</span>
+                  <div className='skill-title'><Icon name={icon} className='feature-icon' /><h3>{name}</h3></div>
+                  <span className='level'>{level}%</span>
                 </div>
-                <div className='bar' role='progressbar' aria-valuemin={0} aria-valuemax={100} aria-valuenow={level} aria-label={name}>
-                  <div style={{ width: `${level}%` }} />
-                </div>
-                <p className='skill-meta'>{levelLabel(level)}</p>
+                <div className='bar'><div style={{ width: `${level}%` }} /></div>
               </TiltCard>
             ))}
           </div>
@@ -257,7 +261,7 @@ export default function App() {
           <div className='grid grid-3'>
             {services.map(([icon, title, text]) => (
               <TiltCard key={title}>
-                <div className='service-top'><Icon name={icon} /><h3>{title}</h3></div>
+                <div className='service-top'><Icon name={icon} className='feature-icon' /><h3>{title}</h3></div>
                 <p>{text}</p>
               </TiltCard>
             ))}
@@ -267,9 +271,7 @@ export default function App() {
         <section id='projects' className='section reveal'>
           <h2>Projects</h2>
           <div className='filters'>
-            {categories.map((c) => (
-              <button key={c} className={`filter-btn ${c === filter ? 'active' : ''}`} onClick={() => setFilter(c)}>{c}</button>
-            ))}
+            {categories.map((c) => <button key={c} className={`filter-btn ${c === filter ? 'active' : ''}`} onClick={() => setFilter(c)}>{c}</button>)}
           </div>
           <div className='grid grid-2'>
             {filteredProjects.map((p) => (
@@ -280,6 +282,19 @@ export default function App() {
                 <p>{p.summary}</p>
                 <button className='btn btn-ghost' onClick={() => setSelected(p)}>View Details</button>
               </TiltCard>
+            ))}
+          </div>
+        </section>
+
+        <section id='awards' className='section reveal'>
+          <h2>Awards / Recognition</h2>
+          <div className='awards-track'>
+            {[...awards, ...awards].map(([title, text], i) => (
+              <article key={`${title}-${i}`} className='award-card frame'>
+                <Icon name='award' className='feature-icon' />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
             ))}
           </div>
         </section>
@@ -313,36 +328,60 @@ export default function App() {
 
         <section id='testimonials' className='section reveal'>
           <h2>Testimonials</h2>
-          <div className='grid grid-3'>
-            {testimonials.map(([quote, by]) => (
-              <TiltCard key={by}>
+          <div className='testimonial-strip'>
+            {[...testimonials, ...testimonials].map(([quote, by], i) => (
+              <article key={`${by}-${i}`} className='testimonial-card frame'>
                 <p>{quote}</p>
                 <strong>{by}</strong>
-              </TiltCard>
+              </article>
             ))}
           </div>
         </section>
 
         <section id='contact' className='section reveal'>
           <h2>Contact</h2>
-          <div className='social-row'>
-            <a href='https://facebook.com' target='_blank' rel='noreferrer'>Facebook</a>
-            <a href='https://linkedin.com' target='_blank' rel='noreferrer'>LinkedIn</a>
-            <a href='https://twitter.com' target='_blank' rel='noreferrer'>Twitter / X</a>
-            <a href='https://instagram.com' target='_blank' rel='noreferrer'>Instagram</a>
-            <a href='https://github.com/artin64' target='_blank' rel='noreferrer'>GitHub</a>
-          </div>
+          <div className='contact-grid'>
+            <div className='card frame map-card'>
+              <h3>Your Location (Live)</h3>
+              <iframe
+                title='map'
+                loading='lazy'
+                referrerPolicy='no-referrer-when-downgrade'
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=${loc.lon - 0.02}%2C${loc.lat - 0.02}%2C${loc.lon + 0.02}%2C${loc.lat + 0.02}&layer=mapnik&marker=${loc.lat}%2C${loc.lon}`}
+              />
+            </div>
 
-          <form className='card frame contact-form' onSubmit={submit}>
-            <label>Name<input name='name' required /></label>
-            <label>Email<input name='email' type='email' required /></label>
-            <label>Message<textarea name='message' rows={5} required /></label>
-            <button className='btn btn-primary' disabled={form.loading}>{form.loading ? 'Sending...' : 'Send Message'}</button>
-            {form.ok && <p className='ok'>Message sent successfully.</p>}
-            {form.err && <p className='err'>{form.err}</p>}
-          </form>
+            <div>
+              <div className='social-row'>
+                <a href='https://facebook.com' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> Facebook</a>
+                <a href='https://linkedin.com' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> LinkedIn</a>
+                <a href='https://twitter.com' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> Twitter / X</a>
+                <a href='https://instagram.com' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> Instagram</a>
+                <a href='https://github.com/artin64' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> GitHub</a>
+              </div>
+
+              <form className='card frame contact-form' onSubmit={submit}>
+                <label>Name<input name='name' required /></label>
+                <label>Email<input name='email' type='email' required /></label>
+                <label>Message<textarea name='message' rows={5} required /></label>
+                <button className='btn btn-primary' disabled={form.loading}>{form.loading ? 'Sending...' : 'Send Message'}</button>
+                {form.ok && <p className='ok'>Message sent successfully to artin.krasniqi100@gmail.com.</p>}
+                {form.err && <p className='err'>{form.err}</p>}
+              </form>
+            </div>
+          </div>
         </section>
       </main>
+
+      <footer className='footer frame glass'>
+        <p>© {new Date().getFullYear()} Artin Krasniqi. All Rights Reserved.</p>
+        <div className='footer-links'>
+          <a href='#projects'>Projects</a>
+          <a href='#services'>Services</a>
+          <a href='https://github.com/artin64' target='_blank' rel='noreferrer'>GitHub</a>
+          <a href='#contact'>Contact</a>
+        </div>
+      </footer>
 
       <a className='mobile-cta' href='#contact'>Contact</a>
 
@@ -352,8 +391,8 @@ export default function App() {
             <img src={selected.image} alt={selected.title} />
             <p className='meta'>{selected.category}</p>
             <h3>{selected.title}</h3>
-            <p>{selected.summary}</p>
-            <p><strong>Result:</strong> {selected.result}</p>
+            <p className='modal-text'>{selected.summary}</p>
+            <p className='modal-text'><strong>Result:</strong> {selected.result}</p>
             <button className='btn btn-ghost' onClick={() => setSelected(null)}>Close</button>
           </article>
         </button>
