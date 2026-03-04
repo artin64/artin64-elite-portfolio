@@ -46,7 +46,7 @@ const projects = [
     category: 'Database',
     summary: 'Executive dashboard with KPI reporting, data insights, and role-based visibility.',
     result: 'Faster decision-making with cleaner reporting workflows.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1800&q=80',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=80',
   },
   {
     title: 'Agency WordPress System',
@@ -100,6 +100,12 @@ const iconMap = {
   wp: 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18zm-4.2 5.3c.4 0 .7.1 1.1.1-.1.2-.2.6-.2 1l2 5.9 1.2-3.6-.8-2.2c-.2-.5-.3-.8-.3-1.1.6 0 1.2-.1 1.9-.1-.1.2-.2.6-.2 1l2 6 1.1-3.3c.3-1 .5-1.7.5-2.3 0-.8-.3-1.4-.8-1.9a7 7 0 0 1 1.7 4.6 7 7 0 0 1-3.8 6.2l2.3-6.6c.2-.6.4-1.2.4-1.6 0-.4-.1-.8-.2-1.1l-2.7 7.8-.2.6a7 7 0 0 1-4.2-1.4l-2.4-6.6c-.3-.9-.5-1.4-.9-2 .4 0 .8-.1 1.3-.1z',
   brief: 'M3 7h18v12H3zM8 7V5h8v2M3 12h18',
   social: 'M12 3l7 4v10l-7 4-7-4V7l7-4z',
+  fb: 'M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v5h3v-5h2.3l.7-3H13V9c0-.6.4-1 1-1z',
+  li: 'M5 9h3v10H5zM6.5 4.5A1.5 1.5 0 1 0 6.5 7a1.5 1.5 0 0 0 0-2.5zM10 9h3v1.5c.5-.9 1.7-1.8 3.3-1.8 3 0 3.7 2 3.7 4.7V19h-3v-4.8c0-1.1 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5V19h-3z',
+  x: 'M4 5h3.5l3.1 4.2L14.3 5H20l-6.4 7.4L20 19h-3.5l-3.6-4.8L8.7 19H3l6.6-7.7z',
+  ig: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5.5A4.5 4.5 0 1 0 12 17.5 4.5 4.5 0 0 0 12 8.5zm5.2-2a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z',
+  gh: 'M12 3a9 9 0 0 0-2.8 17.6c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.3-1.1.6-1.4-2.2-.2-4.5-1.1-4.5-5A3.8 3.8 0 0 1 7.9 8c-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a8.9 8.9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5a3.8 3.8 0 0 1 1 2.6c0 3.9-2.3 4.8-4.5 5 .3.2.7.8.7 1.7v2.5c0 .3.2.6.7.5A9 9 0 0 0 12 3z',
+  location: 'M12 21s7-4.7 7-11a7 7 0 1 0-14 0c0 6.3 7 11 7 11zm0-8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z',
   award: 'M12 3l2.3 4.7 5.2.8-3.7 3.6.9 5.1-4.7-2.5-4.7 2.5.9-5.1-3.7-3.6 5.2-.8L12 3z',
 }
 
@@ -215,6 +221,22 @@ export default function App() {
           {navLinks.map(([name, href]) => <a key={name} href={href} onClick={() => setMenuOpen(false)}>{name}</a>)}
         </nav>
       </header>
+
+      <section className='location-strip frame glass reveal' id='location'>
+        <div className='location-copy'>
+          <Icon name='location' className='feature-icon' />
+          <div>
+            <strong>Live User Location</strong>
+            <p>Lat: {loc.lat.toFixed(4)} · Lon: {loc.lon.toFixed(4)}</p>
+          </div>
+        </div>
+        <iframe
+          title='live-user-location'
+          loading='lazy'
+          referrerPolicy='no-referrer-when-downgrade'
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${loc.lon - 0.02}%2C${loc.lat - 0.02}%2C${loc.lon + 0.02}%2C${loc.lat + 0.02}&layer=mapnik&marker=${loc.lat}%2C${loc.lon}`}
+        />
+      </section>
 
       <main>
         <section className='hero reveal'>
@@ -341,23 +363,13 @@ export default function App() {
         <section id='contact' className='section reveal'>
           <h2>Contact</h2>
           <div className='contact-grid'>
-            <div className='card frame map-card'>
-              <h3>Your Location (Live)</h3>
-              <iframe
-                title='map'
-                loading='lazy'
-                referrerPolicy='no-referrer-when-downgrade'
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${loc.lon - 0.02}%2C${loc.lat - 0.02}%2C${loc.lon + 0.02}%2C${loc.lat + 0.02}&layer=mapnik&marker=${loc.lat}%2C${loc.lon}`}
-              />
-            </div>
-
             <div>
               <div className='social-row'>
-                <a href='https://facebook.com' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> Facebook</a>
-                <a href='https://linkedin.com' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> LinkedIn</a>
-                <a href='https://twitter.com' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> Twitter / X</a>
-                <a href='https://instagram.com' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> Instagram</a>
-                <a href='https://github.com/artin64' target='_blank' rel='noreferrer'><Icon name='social' className='social-icon' /> GitHub</a>
+                <a href='https://facebook.com' target='_blank' rel='noreferrer'><Icon name='fb' className='social-icon' /> Facebook</a>
+                <a href='https://linkedin.com' target='_blank' rel='noreferrer'><Icon name='li' className='social-icon' /> LinkedIn</a>
+                <a href='https://twitter.com' target='_blank' rel='noreferrer'><Icon name='x' className='social-icon' /> Twitter / X</a>
+                <a href='https://instagram.com' target='_blank' rel='noreferrer'><Icon name='ig' className='social-icon' /> Instagram</a>
+                <a href='https://github.com/artin64' target='_blank' rel='noreferrer'><Icon name='gh' className='social-icon' /> GitHub</a>
               </div>
 
               <form className='card frame contact-form' onSubmit={submit}>
