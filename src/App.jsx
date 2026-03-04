@@ -5,19 +5,21 @@ const navLinks = [
   ['Home', '#home'],
   ['Featured', '#featured'],
   ['Projects', '#projects'],
+  ['Services', '#services'],
   ['Skills', '#skills'],
   ['About', '#about'],
+  ['FAQ', '#faq'],
   ['Contact', '#contact'],
 ]
 
 const featuredProject = {
   title: 'AI Document Assistant Platform',
   summary:
-    'A full-stack document workflow tool focused on search speed, collaboration, and clean UX for fast-moving teams.',
+    'A full-stack document workflow platform designed for speed, clarity, and team productivity.',
   problem:
-    'Teams were losing time in repetitive document navigation and fragmented internal flow.',
+    'Large teams were losing time across scattered files and unclear collaboration structure.',
   solution:
-    'Built a structured dashboard with smart filters, role-based access, and reliable backend architecture.',
+    'Implemented structured dashboard flows, role-based access, and optimized document search patterns.',
   stack: ['React', 'Node.js', 'PostgreSQL', 'REST API', 'Auth'],
   image:
     'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80',
@@ -28,7 +30,7 @@ const featuredProject = {
 const projects = [
   {
     title: 'Issue Management SaaS',
-    desc: 'Problem: scattered team workflow. Solution: sprint-ready product with access roles and reporting view.',
+    desc: 'Built a sprint-focused SaaS flow with clear permissions, status tracking, and reporting modules.',
     stack: ['Next.js', 'TypeScript', 'RBAC', 'Analytics'],
     image:
       'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
@@ -37,7 +39,7 @@ const projects = [
   },
   {
     title: 'Conversion-First Company Site',
-    desc: 'Problem: weak trust and unclear messaging. Solution: redesigned structure, modern UI, and faster loading.',
+    desc: 'Redesigned messaging, hierarchy, and UI interactions to improve trust and lead intent.',
     stack: ['React', 'Vite', 'SEO', 'Motion'],
     image:
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
@@ -46,7 +48,7 @@ const projects = [
   },
   {
     title: 'Internal Client Dashboard',
-    desc: 'Problem: poor project visibility. Solution: custom dashboard for status tracking, KPIs, and updates.',
+    desc: 'Created KPI-focused dashboard architecture for project visibility and stakeholder clarity.',
     stack: ['React', 'Node.js', 'Charts', 'PostgreSQL'],
     image:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
@@ -55,19 +57,41 @@ const projects = [
   },
 ]
 
+const services = [
+  ['⚡', 'Full-Stack Product Development', 'From planning to deployment with clean code and scalable architecture.'],
+  ['🎯', 'Conversion-Focused Web Design', 'Premium UI systems designed to communicate value and increase trust.'],
+  ['🛡️', 'Performance & Security Optimization', 'Fast loading, robust structure, and maintainable engineering decisions.'],
+]
+
 const skills = [
   ['React / Next.js', 95],
   ['TypeScript / JavaScript', 92],
-  ['Node.js / APIs', 88],
-  ['UI Engineering', 94],
-  ['Performance Optimization', 86],
-  ['Database Design (PostgreSQL)', 82],
+  ['Node.js / API Design', 89],
+  ['UI Engineering', 95],
+  ['Performance Optimization', 87],
+  ['PostgreSQL / Data Modeling', 84],
 ]
 
-const testimonials = [
-  '“Premium quality delivery with strong communication and clean execution.”',
-  '“Exactly what we needed: modern UI + scalable architecture.”',
-  '“Fast turnaround and excellent attention to detail.”',
+const stats = [
+  ['30+', 'Projects delivered'],
+  ['3+', 'Years experience'],
+  ['99%', 'Client satisfaction'],
+  ['24h', 'Avg response time'],
+]
+
+const faqs = [
+  {
+    q: 'What type of projects do you take?',
+    a: 'Business websites, custom web apps, dashboards, and product-focused frontend/backend builds.',
+  },
+  {
+    q: 'Do you work with startups and remote clients?',
+    a: 'Yes. Most collaborations are remote-first with clear milestones and fast communication.',
+  },
+  {
+    q: 'Can you improve an existing website instead of building from zero?',
+    a: 'Absolutely. I often optimize structure, performance, UX flow, and visual quality on existing products.',
+  },
 ]
 
 function useReveal() {
@@ -79,10 +103,10 @@ function useReveal() {
           if (entry.isIntersecting) entry.target.classList.add('visible')
         })
       },
-      { threshold: 0.15 }
+      { threshold: 0.14 }
     )
 
-    items.forEach((el) => observer.observe(el))
+    items.forEach((item) => observer.observe(item))
     return () => observer.disconnect()
   }, [])
 }
@@ -90,25 +114,28 @@ function useReveal() {
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [lightboxImage, setLightboxImage] = useState('')
+  const allProjects = useMemo(() => [featuredProject, ...projects], [])
 
   useReveal()
 
   useEffect(() => {
-    const closeOnEscape = (e) => {
-      if (e.key === 'Escape') setLightboxImage('')
+    const onEsc = (event) => {
+      if (event.key === 'Escape') setLightboxImage('')
     }
 
-    window.addEventListener('keydown', closeOnEscape)
-    return () => window.removeEventListener('keydown', closeOnEscape)
+    window.addEventListener('keydown', onEsc)
+    return () => window.removeEventListener('keydown', onEsc)
   }, [])
-
-  const allProjects = useMemo(() => [featuredProject, ...projects], [])
 
   return (
     <div className="page" id="home">
-      <div className="bg-gradient" />
-      <div className="particle particle-a" />
-      <div className="particle particle-b" />
+      <div className="bg-grid" />
+      <div className="blob blob-1" />
+      <div className="blob blob-2" />
+      <div className="ring ring-1" />
+      <div className="ring ring-2" />
+      <div className="floating-shape shape-square" />
+      <div className="floating-shape shape-diamond" />
 
       <header className="header glass">
         <a className="brand" href="#home">Artin Krasniqi</a>
@@ -132,15 +159,16 @@ export default function App() {
 
       <main>
         <section className="hero reveal">
-          <div className="hero-overlay" />
-          <p className="eyebrow">FULL-STACK DEVELOPER · PRISHTINË, KOSOVË</p>
-          <h1>Modern web products with premium UI, speed, and real business impact.</h1>
+          <div className="hero-tag">Available for high-quality freelance projects</div>
+          <p className="eyebrow">FULL-STACK WEB DEVELOPER · PRISHTINË, KOSOVË</p>
+          <h1>Building exceptional digital products with premium UI, speed, and clarity.</h1>
           <p className="lead">
-            I design and build responsive websites and web apps that help brands look credible and convert more.
+            I help founders and businesses launch websites and web apps that look elite,
+            feel smooth, and perform reliably across all devices.
           </p>
 
           <div className="hero-actions">
-            <a className="btn btn-primary" href="#projects">See Projects</a>
+            <a className="btn btn-primary" href="#projects">Explore Projects</a>
             <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
           </div>
 
@@ -149,6 +177,15 @@ export default function App() {
             <a href="https://github.com/artin64" target="_blank" rel="noreferrer">GitHub</a>
             <a href="tel:+38349732298">+383 49 732 298</a>
           </div>
+        </section>
+
+        <section className="stats reveal" aria-label="stats">
+          {stats.map(([value, label], idx) => (
+            <article key={label} className="card pop" style={{ animationDelay: `${idx * 120}ms` }}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </article>
+          ))}
         </section>
 
         <section id="featured" className="section reveal">
@@ -166,11 +203,9 @@ export default function App() {
               <p>{featuredProject.summary}</p>
               <p><strong>Problem:</strong> {featuredProject.problem}</p>
               <p><strong>Solution:</strong> {featuredProject.solution}</p>
-
               <div className="chips">
                 {featuredProject.stack.map((item) => <span key={item}>{item}</span>)}
               </div>
-
               <div className="project-links">
                 <a href={featuredProject.live}>Live Demo</a>
                 <a href={featuredProject.github} target="_blank" rel="noreferrer">GitHub</a>
@@ -181,11 +216,11 @@ export default function App() {
 
         <section id="projects" className="section reveal">
           <h2>Project Showcase</h2>
-          <p className="section-intro">Each project includes problem, solution direction, and tech stack.</p>
+          <p className="section-intro">Every project card includes context, stack, and links.</p>
 
           <div className="grid-3">
             {projects.map((project) => (
-              <article key={project.title} className="card project hover-lift">
+              <article key={project.title} className="card hover-lift project-card">
                 <img
                   src={project.image}
                   alt={`${project.title} preview`}
@@ -201,6 +236,19 @@ export default function App() {
                   <a href={project.live}>Live Demo</a>
                   <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
                 </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="services" className="section reveal">
+          <h2>Services</h2>
+          <div className="grid-3">
+            {services.map(([icon, title, text]) => (
+              <article key={title} className="card hover-lift">
+                <div className="service-icon">{icon}</div>
+                <h3>{title}</h3>
+                <p>{text}</p>
               </article>
             ))}
           </div>
@@ -226,33 +274,30 @@ export default function App() {
         <section id="about" className="section reveal">
           <h2>About</h2>
           <p>
-            I’m Artin Krasniqi — a full-stack web developer focused on clean architecture, premium interface quality,
-            and practical product outcomes. I work across frontend, backend, and deployment.
+            I’m Artin Krasniqi, a full-stack developer focused on premium digital execution.
+            I combine technical depth with product thinking to create clean, scalable, and conversion-ready experiences.
           </p>
           <p>
-            What makes my approach different: I do not only build visuals; I align each section with user intent,
-            trust signals, and conversion clarity.
+            My workflow prioritizes clarity: clear structure, strong visual hierarchy, modern interactions,
+            and performance that feels immediate.
           </p>
-
-          <div className="stats-grid">
-            <article className="card pop"><strong>30+</strong><span>Projects Delivered</span></article>
-            <article className="card pop"><strong>3+</strong><span>Years Experience</span></article>
-            <article className="card pop"><strong>Global</strong><span>Remote Collaborations</span></article>
-          </div>
         </section>
 
-        <section className="section reveal">
-          <h2>Testimonials</h2>
-          <div className="grid-3">
-            {testimonials.map((item, i) => (
-              <article key={i} className="card hover-lift"><p>{item}</p></article>
+        <section id="faq" className="section reveal">
+          <h2>FAQ</h2>
+          <div className="faq-grid">
+            {faqs.map((item) => (
+              <article key={item.q} className="card hover-lift">
+                <h3>{item.q}</h3>
+                <p>{item.a}</p>
+              </article>
             ))}
           </div>
         </section>
 
         <section id="contact" className="section contact reveal">
           <h2>Contact Me</h2>
-          <p>Send your idea, budget range, and timeline. I’ll reply with a clear execution direction.</p>
+          <p>Tell me what you want to build. I’ll answer with a clear, practical plan.</p>
 
           <form
             className="contact-form"
@@ -275,7 +320,7 @@ export default function App() {
 
             <label>
               Message
-              <textarea name="message" required rows={5} placeholder="Tell me about your project" />
+              <textarea name="message" rows={5} required placeholder="Project details, budget, timeline..." />
             </label>
 
             <button className="btn btn-primary" type="submit">Send Message</button>
@@ -294,8 +339,8 @@ export default function App() {
       </footer>
 
       {lightboxImage && (
-        <button className="lightbox" onClick={() => setLightboxImage('')} aria-label="Close image preview">
-          <img src={lightboxImage} alt="Project large preview" />
+        <button className="lightbox" onClick={() => setLightboxImage('')} aria-label="Close preview">
+          <img src={lightboxImage} alt="Project preview full size" />
         </button>
       )}
     </div>
