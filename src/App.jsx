@@ -8,86 +8,127 @@ const navLinks = [
   ['Services', '#services'],
   ['Projects', '#projects'],
   ['Experience', '#experience'],
-  ['Pricing', '#pricing'],
-  ['Terminal', '#terminal'],
+  ['Testimonials', '#testimonials'],
   ['Contact', '#contact'],
 ]
 
 const skills = [
-  ['HTML / CSS / JavaScript', 95],
-  ['React & Tailwind CSS', 93],
-  ['C# & .NET', 87],
-  ['Python', 85],
-  ['SQL & Database Design', 92],
-  ['Cybersecurity Basics', 80],
-  ['WordPress Development', 84],
-  ['Financial & Business Analysis', 88],
-  ['Content Strategy & Writing', 90],
+  ['html', 'HTML / CSS', 95],
+  ['js', 'JavaScript', 92],
+  ['react', 'React & Tailwind CSS', 93],
+  ['dotnet', 'C# & .NET', 87],
+  ['python', 'Python', 85],
+  ['db', 'SQL & Database Design', 92],
+  ['shield', 'Cybersecurity Basics', 80],
+  ['wp', 'WordPress Development', 84],
+  ['brief', 'Financial & Business Analysis', 88],
 ]
 
 const services = [
-  ['Web Development', 'Modern websites and web applications with scalable architecture and premium execution.'],
-  ['Database Design', 'Reliable and efficient relational data models tailored to real business workflows.'],
-  ['Cybersecurity Basics', 'Practical security hardening for websites, systems, and day-to-day digital operations.'],
-  ['Career Training', 'Professional guidance and certified development support for students and professionals.'],
-  ['Business & Economics', 'Strategic insight focused on growth, optimization, and measurable outcomes.'],
-  ['Social Media & Content', 'Structured content planning and communication that strengthens digital presence.'],
+  ['code', 'Web Development', 'Modern websites and full-stack applications built for scale and reliability.'],
+  ['db', 'Database Design', 'Structured data architecture that improves performance, accuracy, and maintainability.'],
+  ['shield', 'Cybersecurity Basics', 'Practical security hardening for websites, accounts, and operational workflows.'],
+  ['trend', 'Business & Economics', 'Business strategy and analytical insights aligned with measurable outcomes.'],
+  ['doc', 'Content & Communication', 'Clear, high-impact writing and content systems for digital platforms.'],
+  ['career', 'Career Training', 'Mentoring and structured training for youth, students, and professionals.'],
 ]
 
 const projects = [
-  ['Elite Portfolio Platform', 'Web', 'High-end portfolio with smooth motion, structured information architecture, and polished UX.'],
-  ['Business Intelligence Dashboard', 'Database', 'Executive-level analytics interface with decision-focused reporting modules.'],
-  ['Agency WordPress System', 'WordPress', 'Conversion-oriented company website with scalable content and service funnels.'],
-  ['Interactive Product Interface', 'JS', 'Fast frontend experience with reusable component patterns and clean interaction states.'],
+  {
+    title: 'Elite Portfolio Platform',
+    category: 'Web',
+    summary: 'Luxury portfolio experience with modern motion design and clear information hierarchy.',
+    result: 'Elevated personal brand presence and stronger first impression.',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    title: 'Business Intelligence Dashboard',
+    category: 'Database',
+    summary: 'Executive dashboard with KPI reporting, data insights, and role-based data visibility.',
+    result: 'Faster decision-making with clearer performance visibility.',
+    image: 'https://images.unsplash.com/photo-1551281044-8b5bdc5c39b1?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    title: 'Agency WordPress System',
+    category: 'WordPress',
+    summary: 'Service-focused website with conversion-driven content architecture and admin control.',
+    result: 'Improved lead generation and easier content operations.',
+    image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    title: 'Interactive Product Interface',
+    category: 'JS',
+    summary: 'Fast, component-based frontend with polished interactions and responsive behavior.',
+    result: 'Higher engagement and smoother user journeys.',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
+  },
 ]
 
 const experience = [
-  ['2025 — Present', 'Full Stack Developer', 'Developing robust applications aligned with technical quality and business objectives.'],
-  ['2024 — 2025', 'Web & Database Specialist', 'Delivered responsive platforms and optimized data architecture for operational efficiency.'],
-  ['2023 — 2024', 'Creative Technology Freelancer', 'Built modern digital interfaces focused on usability, clarity, and visual precision.'],
+  ['2025 — Present', 'Full Stack Developer', 'Building robust software products with premium frontend execution and business alignment.'],
+  ['2024 — 2025', 'Web & Database Specialist', 'Designed responsive systems and optimized database structures for operational efficiency.'],
+  ['2023 — 2024', 'Creative Technology Freelancer', 'Delivered high-quality digital interfaces, websites, and content systems for clients.'],
 ]
 
-const pricing = [
-  ['Basic', '€249', ['Single-page website', 'Responsive layout', 'Clean premium styling']],
-  ['Premium', '€699', ['Multi-section business site', 'Advanced animations', 'Integrations + optimization']],
-  ['Ultra', '€1499', ['Full-stack application', 'Architecture + security', 'Priority delivery & support']],
+const testimonials = [
+  ['Very clean execution, serious design quality, and excellent communication.', 'Client · Startup Founder'],
+  ['Fast delivery with enterprise-level structure and detail.', 'Client · Business Owner'],
+  ['Strong blend of design thinking and technical implementation.', 'Client · Agency Partner'],
 ]
 
-const terminalCommands = {
-  help: 'commands: skills | services | projects | contact | offers | clear',
-  skills: 'Core stack: React, JavaScript, C#, SQL, Python, WordPress.',
-  services: 'web-development, database-design, cybersecurity, training, business, content.',
-  projects: 'elite-portfolio, intelligence-dashboard, wordpress-system, product-interface.',
-  offers: 'basic (€249), premium (€699), ultra (€1499)',
-  contact: 'email: artin.krasniqi100@gmail.com',
+const iconMap = {
+  code: 'M4 7l8-4 8 4M4 17l8 4 8-4M12 3v18',
+  db: 'M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zm0 6c0 1.7 3.6 3 8 3s8-1.3 8-3m-16 0v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6',
+  shield: 'M12 3l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z',
+  trend: 'M4 16l5-5 4 4 7-7M20 8V3h-5',
+  doc: 'M7 3h7l5 5v13H7zM14 3v5h5',
+  career: 'M3 20h18M6 20V8h12v12M9 8V5h6v3',
+  html: 'M4 4h16l-2 16-6 2-6-2zM8 8h8M8 12h8M8 16h6',
+  js: 'M6 5h12v14H6zM10 16c.4.7 1 1 2 1 1.2 0 2-.7 2-2v-5',
+  react: 'M12 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0-4 0M12 12c-4.5 0-8-1.8-8-4s3.5-4 8-4 8 1.8 8 4-3.5 4-8 4zm0 0c4.5 0 8 1.8 8 4s-3.5 4-8 4-8-1.8-8-4 3.5-4 8-4zm0 0c0-4.5 1.8-8 4-8s4 3.5 4 8-1.8 8-4 8-4-3.5-4-8zm0 0c0 4.5-1.8 8-4 8s-4-3.5-4-8 1.8-8 4-8 4 3.5 4 8z',
+  dotnet: 'M4 6h16v12H4zM8 10h8M8 14h5',
+  python: 'M7 7c0-2 2-3 5-3s5 1 5 3v3H7V7zm10 10c0 2-2 3-5 3s-5-1-5-3v-3h10v3z',
+  wp: 'M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18zm-4.2 5.3c.4 0 .7.1 1.1.1-.1.2-.2.6-.2 1l2 5.9 1.2-3.6-.8-2.2c-.2-.5-.3-.8-.3-1.1.6 0 1.2-.1 1.9-.1-.1.2-.2.6-.2 1l2 6 1.1-3.3c.3-1 .5-1.7.5-2.3 0-.8-.3-1.4-.8-1.9a7 7 0 0 1 1.7 4.6 7 7 0 0 1-3.8 6.2l2.3-6.6c.2-.6.4-1.2.4-1.6 0-.4-.1-.8-.2-1.1l-2.7 7.8-.2.6a7 7 0 0 1-4.2-1.4l-2.4-6.6c-.3-.9-.5-1.4-.9-2 .4 0 .8-.1 1.3-.1z',
+  brief: 'M3 7h18v12H3zM8 7V5h8v2M3 12h18',
+}
+
+function Icon({ name }) {
+  return (
+    <svg viewBox='0 0 24 24' aria-hidden='true' className='icon'>
+      <path d={iconMap[name]} />
+    </svg>
+  )
+}
+
+function levelLabel(value) {
+  if (value >= 90) return 'Expert'
+  if (value >= 75) return 'Advanced'
+  if (value >= 60) return 'Intermediate'
+  return 'Beginner'
 }
 
 function useReveal() {
   useEffect(() => {
-    const nodes = document.querySelectorAll('.reveal')
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('visible')),
-      { threshold: 0.12 }
-    )
-    nodes.forEach((node) => observer.observe(node))
+    const items = document.querySelectorAll('.reveal')
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('visible'))
+    }, { threshold: 0.12 })
+    items.forEach((item) => observer.observe(item))
     return () => observer.disconnect()
   }, [])
 }
 
 function TiltCard({ children, className = '' }) {
   const [style, setStyle] = useState({})
-
-  const onMove = (e) => {
+  const move = (e) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width
     const y = (e.clientY - rect.top) / rect.height
-    const rx = (0.5 - y) * 6
-    const ry = (x - 0.5) * 8
-    setStyle({ transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)` })
+    setStyle({ transform: `perspective(1000px) rotateX(${(0.5 - y) * 6}deg) rotateY(${(x - 0.5) * 8}deg) translateY(-3px)` })
   }
 
   return (
-    <article className={`card frame tilt ${className}`} style={style} onMouseMove={onMove} onMouseLeave={() => setStyle({})}>
+    <article className={`card frame tilt ${className}`} style={style} onMouseMove={move} onMouseLeave={() => setStyle({})}>
       {children}
     </article>
   )
@@ -95,50 +136,40 @@ function TiltCard({ children, className = '' }) {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark')
+  const [progress, setProgress] = useState(0)
   const [filter, setFilter] = useState('All')
-  const [termInput, setTermInput] = useState('')
-  const [termLog, setTermLog] = useState(['gold-terminal ready. type help'])
+  const [selected, setSelected] = useState(null)
   const [form, setForm] = useState({ loading: false, ok: false, err: '' })
 
   useReveal()
 
   useEffect(() => {
+    document.body.dataset.theme = theme
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  useEffect(() => {
     const onScroll = () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight
-      setScrollProgress(h > 0 ? (window.scrollY / h) * 100 : 0)
+      const total = document.documentElement.scrollHeight - window.innerHeight
+      const p = total > 0 ? (window.scrollY / total) * 100 : 0
+      setProgress(p)
+      document.documentElement.style.setProperty('--parallax-y', `${window.scrollY * 0.08}px`)
     }
     onScroll()
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const filters = ['All', 'Web', 'Database', 'WordPress', 'JS']
+  const categories = ['All', 'Web', 'Database', 'WordPress', 'JS']
   const filteredProjects = useMemo(
-    () => projects.filter((p) => filter === 'All' || p[1] === filter),
+    () => projects.filter((p) => filter === 'All' || p.category === filter),
     [filter]
   )
 
-  const onTerminal = (e) => {
-    e.preventDefault()
-    const cmd = termInput.trim().toLowerCase()
-    if (!cmd) return
-
-    if (cmd === 'clear') {
-      setTermLog(['terminal cleared'])
-      setTermInput('')
-      return
-    }
-
-    const out = terminalCommands[cmd] || `unknown command: ${cmd}`
-    setTermLog((prev) => [...prev, `> ${cmd}`, out])
-    setTermInput('')
-  }
-
-  const onSubmit = async (e) => {
+  const submit = async (e) => {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
-
     try {
       setForm({ loading: true, ok: false, err: '' })
       const res = await fetch('https://formsubmit.co/ajax/artin.krasniqi100@gmail.com', {
@@ -156,17 +187,21 @@ export default function App() {
 
   return (
     <div className='page' id='home'>
-      <div className='scroll-progress' style={{ width: `${scrollProgress}%` }} />
+      <div className='scroll-progress' style={{ width: `${progress}%` }} />
       <div className='ambient ambient-a' />
       <div className='ambient ambient-b' />
-      <div className='ambient ambient-c' />
 
       <header className='header glass frame'>
         <a href='#home' className='brand'>ARTIN KRASNIQI</a>
-        <button className='mobile-btn' onClick={() => setMenuOpen((s) => !s)}>Menu</button>
+        <div className='controls'>
+          <button className='control-btn' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label='Toggle theme'>
+            {theme === 'dark' ? 'Light' : 'Dark'}
+          </button>
+          <button className='mobile-btn' onClick={() => setMenuOpen((v) => !v)} aria-label='Open menu'>Menu</button>
+        </div>
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map(([n, h]) => (
-            <a key={n} href={h} onClick={() => setMenuOpen(false)}>{n}</a>
+          {navLinks.map(([name, href]) => (
+            <a key={name} href={href} onClick={() => setMenuOpen(false)}>{name}</a>
           ))}
         </nav>
       </header>
@@ -174,17 +209,19 @@ export default function App() {
       <main>
         <section className='hero reveal'>
           <p className='kicker'>FULL STACK · PREMIUM ENGINEERING</p>
-          <h1>Modern gold-standard portfolio experience, crafted for precision and impact.</h1>
-          <p className='lead'>I build digital systems that combine elegant interface design, high performance, and strong business alignment.</p>
+          <h1>Professional portfolio crafted with precision, motion, and modern structure.</h1>
+          <p className='lead'>
+            I design and build scalable digital products where visual elegance, performance, and business value work together.
+          </p>
           <div className='hero-actions'>
             <a className='btn btn-primary' href='#projects'>View Projects</a>
-            <a className='btn btn-ghost' href='#contact'>Start a Project</a>
+            <a className='btn btn-ghost' href='#contact'>Contact Me</a>
           </div>
         </section>
 
         <section id='about' className='section reveal'>
           <h2>About Me</h2>
-          <div className='card frame about'>
+          <div className='card frame'>
             <p>Hello! I'm a passionate Full Stack developer with extensive experience in database design, cybersecurity basics, and building scalable web solutions. I combine technical expertise with strong skills in business management, finance, and data analysis to create applications that deliver real impact for users and organizations.</p>
             <p>Throughout my projects, I have honed my abilities in managing products, optimizing workflows, and analyzing complex datasets, ensuring that every solution is not only technically robust but also aligned with business objectives. I thrive on solving challenging problems and turning ideas into efficient, user-friendly applications.</p>
             <p>I believe in continuous learning, embracing innovation, and improving with each project. By blending creativity, technical skills, and strategic thinking, I consistently deliver high-quality results that make a tangible difference.</p>
@@ -194,13 +231,16 @@ export default function App() {
         <section id='skills' className='section reveal'>
           <h2>Skills</h2>
           <div className='grid grid-3'>
-            {skills.map(([name, level]) => (
+            {skills.map(([icon, name, level]) => (
               <TiltCard key={name}>
                 <div className='skill-head'>
-                  <h3>{name}</h3>
-                  <strong>{level}%</strong>
+                  <div className='skill-title'><Icon name={icon} /><h3>{name}</h3></div>
+                  <span className='level' title={levelLabel(level)}>{level}%</span>
                 </div>
-                <div className='bar'><div style={{ width: `${level}%` }} /></div>
+                <div className='bar' role='progressbar' aria-valuemin={0} aria-valuemax={100} aria-valuenow={level} aria-label={name}>
+                  <div style={{ width: `${level}%` }} />
+                </div>
+                <p className='skill-meta'>{levelLabel(level)}</p>
               </TiltCard>
             ))}
           </div>
@@ -209,10 +249,9 @@ export default function App() {
         <section id='services' className='section reveal'>
           <h2>Services</h2>
           <div className='grid grid-3'>
-            {services.map(([title, text]) => (
-              <TiltCard key={title} className='service-card'>
-                <span className='service-line' />
-                <h3>{title}</h3>
+            {services.map(([icon, title, text]) => (
+              <TiltCard key={title}>
+                <div className='service-top'><Icon name={icon} /><h3>{title}</h3></div>
                 <p>{text}</p>
               </TiltCard>
             ))}
@@ -222,16 +261,18 @@ export default function App() {
         <section id='projects' className='section reveal'>
           <h2>Projects</h2>
           <div className='filters'>
-            {filters.map((x) => (
-              <button key={x} className={`filter-btn ${x === filter ? 'active' : ''}`} onClick={() => setFilter(x)}>{x}</button>
+            {categories.map((c) => (
+              <button key={c} className={`filter-btn ${c === filter ? 'active' : ''}`} onClick={() => setFilter(c)}>{c}</button>
             ))}
           </div>
           <div className='grid grid-2'>
-            {filteredProjects.map(([title, category, text]) => (
-              <TiltCard key={title}>
-                <p className='meta'>{category}</p>
-                <h3>{title}</h3>
-                <p>{text}</p>
+            {filteredProjects.map((p) => (
+              <TiltCard key={p.title} className='project-card'>
+                <img src={p.image} alt={p.title} loading='lazy' />
+                <p className='meta'>{p.category}</p>
+                <h3>{p.title}</h3>
+                <p>{p.summary}</p>
+                <button className='btn btn-ghost' onClick={() => setSelected(p)}>View Details</button>
               </TiltCard>
             ))}
           </div>
@@ -253,25 +294,26 @@ export default function App() {
         <section id='pricing' className='section reveal'>
           <h2>Pricing</h2>
           <div className='grid grid-3'>
-            {pricing.map(([name, price, features]) => (
+            {pricing.map(([name, price, list]) => (
               <TiltCard key={name} className='price-card'>
                 <h3>{name}</h3>
                 <p className='price'>{price}</p>
-                <ul>{features.map((f) => <li key={f}>{f}</li>)}</ul>
+                <ul>{list.map((item) => <li key={item}>{item}</li>)}</ul>
                 <a href='#contact' className='btn btn-primary'>Choose {name}</a>
               </TiltCard>
             ))}
           </div>
         </section>
 
-        <section id='terminal' className='section reveal'>
-          <h2>Interactive Terminal</h2>
-          <div className='card frame terminal'>
-            {termLog.map((line, i) => <p key={`${line}-${i}`}>{line}</p>)}
-            <form onSubmit={onTerminal} className='terminal-form'>
-              <span>$</span>
-              <input value={termInput} onChange={(e) => setTermInput(e.target.value)} placeholder='help | skills | services | projects | contact | offers | clear' />
-            </form>
+        <section id='testimonials' className='section reveal'>
+          <h2>Testimonials</h2>
+          <div className='grid grid-3'>
+            {testimonials.map(([quote, by]) => (
+              <TiltCard key={by}>
+                <p>{quote}</p>
+                <strong>{by}</strong>
+              </TiltCard>
+            ))}
           </div>
         </section>
 
@@ -285,18 +327,31 @@ export default function App() {
             <a href='https://github.com/artin64' target='_blank' rel='noreferrer'>GitHub</a>
           </div>
 
-          <form className='card frame contact-form' onSubmit={onSubmit}>
-            <input type='hidden' name='_subject' value='New portfolio message' />
-            <input type='hidden' name='_captcha' value='false' />
+          <form className='card frame contact-form' onSubmit={submit}>
             <label>Name<input name='name' required /></label>
             <label>Email<input name='email' type='email' required /></label>
             <label>Message<textarea name='message' rows={5} required /></label>
-            <button className='btn btn-primary' type='submit' disabled={form.loading}>{form.loading ? 'Sending...' : 'Send Message'}</button>
+            <button className='btn btn-primary' disabled={form.loading}>{form.loading ? 'Sending...' : 'Send Message'}</button>
             {form.ok && <p className='ok'>Message sent successfully.</p>}
             {form.err && <p className='err'>{form.err}</p>}
           </form>
         </section>
       </main>
+
+      <a className='mobile-cta' href='#contact'>Contact</a>
+
+      {selected && (
+        <button className='modal' onClick={() => setSelected(null)}>
+          <article className='modal-card frame' onClick={(e) => e.stopPropagation()}>
+            <img src={selected.image} alt={selected.title} />
+            <p className='meta'>{selected.category}</p>
+            <h3>{selected.title}</h3>
+            <p>{selected.summary}</p>
+            <p><strong>Result:</strong> {selected.result}</p>
+            <button className='btn btn-ghost' onClick={() => setSelected(null)}>Close</button>
+          </article>
+        </button>
+      )}
     </div>
   )
 }
