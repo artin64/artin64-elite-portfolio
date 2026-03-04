@@ -1,123 +1,113 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 
-const roles = ['Full-Stack Developer', 'Creative Frontend Engineer', 'Product-Focused Builder']
-
 const navLinks = [
-  ['Home', '#home'],
-  ['Showcase', '#showcase'],
-  ['Projects', '#projects'],
-  ['Labs', '#labs'],
-  ['Services', '#services'],
+  ['About', '#about'],
   ['Skills', '#skills'],
-  ['Process', '#process'],
+  ['Experience', '#experience'],
+  ['Services', '#services'],
+  ['Projects', '#projects'],
   ['Pricing', '#pricing'],
+  ['Testimonials', '#testimonials'],
+  ['Terminal', '#terminal'],
   ['Contact', '#contact'],
 ]
 
-const stats = [
-  ['Projects', 30, '+'],
-  ['Experience', 3, '+ years'],
-  ['Satisfaction', 99, '%'],
-  ['Response', 24, 'h'],
-]
-
-const projects = [
+const skillGroups = [
   {
-    title: 'AI Document Assistant Platform',
-    category: 'Full-Stack',
-    summary: 'Fast internal search + secure role access for document-heavy teams.',
-    result: 'Reduced search friction and increased team clarity.',
-    stack: ['React', 'Node.js', 'PostgreSQL', 'REST API'],
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80',
+    title: 'Technical Skills',
+    items: [
+      ['💻', 'HTML / CSS / JavaScript', 95],
+      ['⚛️', 'React & Tailwind CSS', 92],
+      ['🟣', 'C# & .NET', 87],
+      ['🐍', 'Python', 85],
+      ['🗄️', 'SQL & Database Design', 90],
+      ['🛡️', 'Cybersecurity (Basics)', 80],
+      ['🔌', 'Computer Circuits', 76],
+      ['🌐', 'WordPress Development', 84],
+      ['📎', 'Microsoft Office Suite', 93],
+    ],
   },
   {
-    title: 'Issue Management SaaS',
-    category: 'SaaS',
-    summary: 'Sprint workflow, role permissions, and reporting dashboard in one flow.',
-    result: 'Improved visibility and predictable delivery cycles.',
-    stack: ['Next.js', 'TypeScript', 'RBAC', 'Analytics'],
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
+    title: 'Business & Management',
+    items: [
+      ['📈', 'Financial Management & Analysis', 89],
+      ['🚀', 'Business Development', 86],
+      ['📊', 'Marketing Analysis', 84],
+      ['🧭', 'Management', 88],
+      ['🎓', 'Career Development Training', 90],
+      ['🤝', 'Customer Service', 91],
+    ],
   },
   {
-    title: 'Conversion-First Company Website',
-    category: 'Marketing',
-    summary: 'Premium redesign focused on credibility, hierarchy, and conversion.',
-    result: 'Stronger first-impression trust and cleaner CTA flow.',
-    stack: ['React', 'Vite', 'SEO', 'Motion'],
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    title: 'Internal KPI Dashboard',
-    category: 'Dashboard',
-    summary: 'Real-time status and KPI widgets for leadership decision support.',
-    result: 'Faster reporting cycles and better project alignment.',
-    stack: ['React', 'Node.js', 'Charts', 'PostgreSQL'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    title: 'Creative Skills',
+    items: [
+      ['✍️', 'Creative Writing', 88],
+      ['📝', 'Content Strategy / Writing', 90],
+      ['🧩', 'Organization & Creative Solutions', 89],
+      ['📱', 'Social Media Management', 87],
+    ],
   },
 ]
 
 const services = [
-  ['⚡', 'Full-Stack Product Development', 'Architecture, UI, APIs, deployment, and long-term maintainability.'],
-  ['🎨', 'Visual & Motion Design Engineering', 'High-end interaction quality with modern, smooth UI behavior.'],
-  ['🛡️', 'Performance + Security Optimization', 'Fast loading, secure defaults, and production-grade engineering decisions.'],
+  ['🌐', 'Web Development', 'Modern websites using HTML, CSS, JS, C#, React, Tailwind CSS, and WordPress.'],
+  ['🗃️', 'Database Design', 'Efficient database structures for applications and businesses.'],
+  ['🔐', 'Cybersecurity Basics', 'Securing websites, accounts, and digital systems from attacks.'],
+  ['🎯', 'Career Training', 'Certified coaching for youth, students, and professionals.'],
+  ['📉', 'Business & Economics', 'Driving growth through economic insight and strategic management.'],
+  ['🧠', 'Organization & Creative Solutions', 'Structuring complex workflows and delivering creative solutions.'],
+  ['✒️', 'Content Writing', 'Clear, engaging, and professional written content for various platforms.'],
+  ['📣', 'Social Media Management', 'Planning, creating, and managing engaging content across social channels.'],
 ]
 
-const labs = [
-  ['Interactive Dashboards', 'Building data-rich interfaces that stay readable and actionable.'],
-  ['AI Features in Web Apps', 'Embedding practical AI flows without bloating UX complexity.'],
-  ['Micro-Interaction Systems', 'Creating subtle detail layers that make products feel premium.'],
+const experiences = [
+  ['2025 - Present', 'Full Stack Developer', 'Building scalable web applications and performance-focused user interfaces.'],
+  ['2024 - 2025', 'Web & Database Specialist', 'Designed business websites and optimized relational database structures.'],
+  ['2023 - 2024', 'Creative Tech Freelancer', 'Delivered interactive frontend solutions, content systems, and brand pages.'],
 ]
 
-const processSteps = [
-  ['01', 'Discovery', 'Business context, goals, and user behavior mapping.'],
-  ['02', 'Design System', 'Visual language, hierarchy, and reusable UI logic.'],
-  ['03', 'Build', 'Scalable frontend/backend implementation and QA pass.'],
-  ['04', 'Launch & Iterate', 'Deploy, monitor metrics, and optimize continuously.'],
+const projects = [
+  ['Elite Portfolio', 'Web', 'High-end personal portfolio with animations and interactive sections.'],
+  ['Business Dashboard', 'Database', 'Data insights dashboard with role-based access and reporting panels.'],
+  ['WordPress Agency Site', 'WordPress', 'Modern company site with service funnels and conversion-focused pages.'],
+  ['JavaScript Product UI', 'JS', 'Responsive app interface with reusable components and API integrations.'],
 ]
 
 const pricing = [
-  ['Starter Website', 'From €450', 'Landing pages and simple business sites with premium polish.'],
-  ['Business Website', 'From €900', 'Multi-section responsive websites with stronger conversion architecture.'],
-  ['Custom Web App', 'Custom Quote', 'Tailored dashboard/SaaS-style products with backend integration.'],
+  ['Basic', '€199', ['One-page website', 'Mobile responsive layout', 'Basic SEO setup']],
+  ['Premium', '€499', ['Multi-section website', 'Animations + interaction', 'Database/contact integration']],
+  ['Ultra', '€999', ['Full stack solution', 'Advanced optimization + security', 'Priority support']],
 ]
 
-const filters = ['All', 'Full-Stack', 'SaaS', 'Marketing', 'Dashboard']
+const testimonials = [
+  ['“Very professional work and excellent communication.”', 'Client — Small Business'],
+  ['“Fast delivery, clean design, and strong technical execution.”', 'Client — Startup Founder'],
+  ['“Helped us organize our workflow and improve our online presence.”', 'Client — Service Company'],
+]
+
+const terminalHelp = {
+  skills: 'Top skills: React, C#, SQL, Cybersecurity Basics, Content Strategy.',
+  services: 'Services: web-dev, database-design, cybersecurity, career-training, social-media.',
+  projects: 'Projects: Elite Portfolio, Business Dashboard, WordPress Agency Site, JavaScript Product UI.',
+  contact: 'Contact: artin.krasniqi100@gmail.com | Scroll to Contact section for direct form.',
+  offers: 'Offers available: Basic (€199), Premium (€499), Ultra (€999).',
+  help: 'Try: skills | services | projects | contact | offers | clear',
+}
 
 function useReveal() {
   useEffect(() => {
     const items = document.querySelectorAll('.reveal')
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
-      { threshold: 0.12 }
+      { threshold: 0.1 }
     )
     items.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 }
 
-function Counter({ value, suffix }) {
-  const [n, setN] = useState(0)
-
-  useEffect(() => {
-    let raf
-    const start = performance.now()
-    const duration = 1200
-
-    const loop = (t) => {
-      const p = Math.min((t - start) / duration, 1)
-      setN(Math.floor(value * p))
-      if (p < 1) raf = requestAnimationFrame(loop)
-    }
-
-    raf = requestAnimationFrame(loop)
-    return () => cancelAnimationFrame(raf)
-  }, [value])
-
-  return <strong>{n}{suffix}</strong>
-}
-
-function TiltCard({ children, className = '' }) {
+function TiltCard({ className = '', children }) {
   const [style, setStyle] = useState({})
 
   const onMove = (e) => {
@@ -126,88 +116,50 @@ function TiltCard({ children, className = '' }) {
     const y = (e.clientY - rect.top) / rect.height
     const rx = (0.5 - y) * 8
     const ry = (x - 0.5) * 10
-    setStyle({ transform: `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)` })
+    setStyle({ transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)` })
   }
 
-  const onLeave = () => setStyle({ transform: 'perspective(900px) rotateX(0) rotateY(0) translateY(0)' })
-
   return (
-    <article className={`card tilt ${className}`} onMouseMove={onMove} onMouseLeave={onLeave} style={style}>
+    <article className={`card tilt ${className}`} onMouseMove={onMove} onMouseLeave={() => setStyle({})} style={style}>
       {children}
     </article>
   )
 }
 
 export default function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark')
   const [menuOpen, setMenuOpen] = useState(false)
-  const [roleIndex, setRoleIndex] = useState(0)
-  const [typed, setTyped] = useState('')
   const [filter, setFilter] = useState('All')
-  const [search, setSearch] = useState('')
-  const [selected, setSelected] = useState(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const [showTop, setShowTop] = useState(false)
+  const [command, setCommand] = useState('')
+  const [logs, setLogs] = useState(['Welcome to Artin Terminal. Type help'])
   const [form, setForm] = useState({ loading: false, ok: false, err: '' })
 
   useReveal()
 
-  useEffect(() => {
-    document.body.dataset.theme = theme
-    localStorage.setItem('theme', theme)
-  }, [theme])
+  const categories = ['All', 'Web', 'Database', 'WordPress', 'JS']
+  const filteredProjects = useMemo(
+    () => projects.filter((p) => filter === 'All' || p[1] === filter),
+    [filter]
+  )
 
-  useEffect(() => {
-    const role = roles[roleIndex]
-    let i = 0
-    const timer = setInterval(() => {
-      i++
-      setTyped(role.slice(0, i))
-      if (i >= role.length) {
-        clearInterval(timer)
-        setTimeout(() => {
-          setTyped('')
-          setRoleIndex((r) => (r + 1) % roles.length)
-        }, 900)
-      }
-    }, 60)
-    return () => clearInterval(timer)
-  }, [roleIndex])
+  const handleCommand = (e) => {
+    e.preventDefault()
+    const text = command.trim().toLowerCase()
+    if (!text) return
 
-  useEffect(() => {
-    const onScroll = () => {
-      const top = window.scrollY
-      const total = document.documentElement.scrollHeight - window.innerHeight
-      setScrollProgress(total > 0 ? (top / total) * 100 : 0)
-      setShowTop(top > 650)
+    if (text === 'clear') {
+      setLogs(['Terminal cleared. Type help'])
+      setCommand('')
+      return
     }
-    const onEsc = (e) => e.key === 'Escape' && setSelected(null)
 
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    window.addEventListener('keydown', onEsc)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('keydown', onEsc)
-    }
-  }, [])
-
-  const filtered = useMemo(() => {
-    return projects.filter((p) => {
-      const f = filter === 'All' || p.category === filter
-      const q = `${p.title} ${p.summary} ${p.stack.join(' ')}`.toLowerCase().includes(search.toLowerCase())
-      return f && q
-    })
-  }, [filter, search])
+    const response = terminalHelp[text] || `Unknown command: ${text}. Type help.`
+    setLogs((prev) => [...prev, `> ${text}`, response])
+    setCommand('')
+  }
 
   const submit = async (e) => {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
-    const email = String(data.get('email') || '')
-    if (!email.includes('@')) {
-      setForm({ loading: false, ok: false, err: 'Email is not valid.' })
-      return
-    }
 
     try {
       setForm({ loading: true, ok: false, err: '' })
@@ -225,91 +177,57 @@ export default function App() {
   }
 
   return (
-    <div className="page" id="home">
-      <div className="progress-line" style={{ width: `${scrollProgress}%` }} />
-      <div className="bg-grid" />
-      <div className="blob b1" />
-      <div className="blob b2" />
-      <div className="blob b3" />
-      <div className="ring r1" />
-      <div className="ring r2" />
-      <div className="shape s1" />
-      <div className="shape s2" />
-      <div className="shape s3" />
-
+    <div className="page">
       <header className="header glass">
-        <a className="brand" href="#home">Artin Krasniqi</a>
-        <div className="head-ctrl">
-          <button className="chip" onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}>{theme === 'dark' ? '☀️' : '🌙'}</button>
-          <button className="chip mobile" onClick={() => setMenuOpen((v) => !v)}>☰</button>
-        </div>
+        <a className="brand" href="#about">Artin Krasniqi</a>
+        <button className="chip mobile" onClick={() => setMenuOpen((v) => !v)}>☰</button>
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map(([n, h]) => <a key={n} href={h} onClick={() => setMenuOpen(false)}>{n}</a>)}
+          {navLinks.map(([n, h]) => (
+            <a key={n} href={h} onClick={() => setMenuOpen(false)}>{n}</a>
+          ))}
         </nav>
       </header>
 
       <main>
-        <section className="hero reveal">
-          <p className="eyebrow">PRISHTINË · KOSOVË</p>
-          <h1>Unforgettable digital products with depth, motion, and premium execution.</h1>
-          <p className="typing">{typed}<span>|</span></p>
-          <p className="lead">I build web experiences that feel fast, interactive, and visually elite on every device.</p>
-          <div className="hero-actions">
-            <a className="btn primary" href="#projects">Explore Projects</a>
-            <a className="btn ghost" href="/resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        <section id="about" className="hero reveal">
+          <h1>Elite Full Stack Portfolio</h1>
+          <p className="lead">
+            Hello! I'm a passionate Full Stack developer with extensive experience in database design, cybersecurity basics, and building scalable web solutions. I combine technical expertise with strong skills in business management, finance, and data analysis to create applications that deliver real impact for users and organizations. Throughout my projects, I have honed my abilities in managing products, optimizing workflows, and analyzing complex datasets, ensuring that every solution is not only technically robust but also aligned with business objectives. I thrive on solving challenging problems and turning ideas into efficient, user-friendly applications. I believe in continuous learning, embracing innovation, and improving with each project. By blending creativity, technical skills, and strategic thinking, I consistently deliver high-quality results that make a tangible difference.
+          </p>
+          <div className="socials">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer">📘 Facebook</a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">💼 LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer">🐦 Twitter/X</a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">📸 Instagram</a>
+            <a href="https://github.com/artin64" target="_blank" rel="noreferrer">🐙 GitHub</a>
           </div>
-          <a className="scroll-tag" href="#showcase">Scroll ↓</a>
         </section>
 
-        <section id="showcase" className="section reveal">
-          <h2>Visual Showcase</h2>
-          <div className="marquee">
-            <div className="track">
-              {['Motion', 'Depth', 'Premium UI', 'Speed', 'Clarity', 'Conversion', 'Interaction', 'Performance'].map((i) => <span key={i}>{i}</span>)}
-              {['Motion', 'Depth', 'Premium UI', 'Speed', 'Clarity', 'Conversion', 'Interaction', 'Performance'].map((i, idx) => <span key={`${i}-${idx}`}>{i}</span>)}
+        <section id="skills" className="section reveal">
+          <h2>Skills</h2>
+          {skillGroups.map((group) => (
+            <div key={group.title} className="skill-group">
+              <h3>{group.title}</h3>
+              <div className="grid-2">
+                {group.items.map(([icon, name, level]) => (
+                  <TiltCard key={name}>
+                    <div className="head-skill"><span>{icon} {name}</span><strong>{level}%</strong></div>
+                    <div className="bar"><div style={{ width: `${level}%` }} /></div>
+                    <div className="radial" style={{ '--value': `${level}%` }} />
+                  </TiltCard>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section className="stats reveal">
-          {stats.map(([label, value, suffix]) => (
-            <TiltCard key={label}>
-              <Counter value={value} suffix={suffix} />
-              <span>{label}</span>
-            </TiltCard>
           ))}
         </section>
 
-        <section id="projects" className="section reveal">
-          <h2>Projects</h2>
-          <div className="row-tools">
-            <input className="search" placeholder="Search projects..." value={search} onChange={(e) => setSearch(e.target.value)} />
-            <div className="filters">
-              {filters.map((f) => (
-                <button key={f} className={`chip ${f === filter ? 'active' : ''}`} onClick={() => setFilter(f)}>{f}</button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid-3">
-            {filtered.map((p) => (
-              <TiltCard key={p.title} className="project">
-                <img src={p.image} alt={p.title} loading="lazy" />
-                <h3>{p.title}</h3>
-                <p>{p.summary}</p>
-                <div className="chips">{p.stack.map((s) => <span key={s}>{s}</span>)}</div>
-                <button className="btn ghost" onClick={() => setSelected(p)}>Open Case Study</button>
-              </TiltCard>
-            ))}
-          </div>
-        </section>
-
-        <section id="labs" className="section reveal">
-          <h2>R&D Labs</h2>
-          <div className="grid-3">
-            {labs.map(([title, text]) => (
-              <TiltCard key={title}>
-                <h3>{title}</h3>
+        <section id="experience" className="section reveal">
+          <h2>Experience</h2>
+          <div className="timeline">
+            {experiences.map(([date, role, text]) => (
+              <TiltCard key={role}>
+                <p className="date">{date}</p>
+                <h3>{role}</h3>
                 <p>{text}</p>
               </TiltCard>
             ))}
@@ -317,36 +235,36 @@ export default function App() {
         </section>
 
         <section id="services" className="section reveal">
-          <h2>Services</h2>
+          <h2>What I Offer</h2>
           <div className="grid-3">
             {services.map(([icon, title, text]) => (
+              <div key={title} className="flip-wrap">
+                <div className="flip">
+                  <div className="card flip-front">
+                    <div className="icon">{icon}</div>
+                    <h3>{title}</h3>
+                  </div>
+                  <div className="card flip-back">
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="projects" className="section reveal">
+          <h2>Portfolio Projects</h2>
+          <div className="filters">
+            {categories.map((c) => (
+              <button key={c} className={`chip ${filter === c ? 'active' : ''}`} onClick={() => setFilter(c)}>{c}</button>
+            ))}
+          </div>
+          <div className="grid-2">
+            {filteredProjects.map(([title, cat, text]) => (
               <TiltCard key={title}>
-                <div className="icon">{icon}</div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </TiltCard>
-            ))}
-          </div>
-        </section>
-
-        <section id="skills" className="section reveal">
-          <h2>Skills</h2>
-          <div className="grid-2">
-            {skills.map(([name, level]) => (
-              <TiltCard key={name}>
-                <div className="head-skill"><h3>{name}</h3><span>{level}%</span></div>
-                <div className="bar"><div style={{ width: `${level}%` }} /></div>
-              </TiltCard>
-            ))}
-          </div>
-        </section>
-
-        <section id="process" className="section reveal">
-          <h2>Process</h2>
-          <div className="grid-2">
-            {processSteps.map(([n, title, text]) => (
-              <TiltCard key={n}>
-                <div className="step">{n}</div>
+                <p className="date">{cat}</p>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </TiltCard>
@@ -355,55 +273,56 @@ export default function App() {
         </section>
 
         <section id="pricing" className="section reveal">
-          <h2>Pricing Snapshot</h2>
+          <h2>Pricing / Offers</h2>
           <div className="grid-3">
-            {pricing.map(([name, price, text]) => (
-              <TiltCard key={name}>
+            {pricing.map(([name, price, items]) => (
+              <TiltCard key={name} className="price-card">
                 <h3>{name}</h3>
                 <p className="price">{price}</p>
-                <p>{text}</p>
+                <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
+                <a className="btn" href="#contact">Choose {name}</a>
               </TiltCard>
             ))}
           </div>
         </section>
 
+        <section id="testimonials" className="section reveal">
+          <h2>Rate My Work / Testimonials</h2>
+          <div className="grid-3">
+            {testimonials.map(([quote, who]) => (
+              <TiltCard key={who}>
+                <p>{quote}</p>
+                <strong>{who}</strong>
+              </TiltCard>
+            ))}
+          </div>
+        </section>
+
+        <section id="terminal" className="section reveal">
+          <h2>Interactive Terminal</h2>
+          <div className="terminal card">
+            {logs.map((line, i) => <p key={`${line}-${i}`}>{line}</p>)}
+            <form onSubmit={handleCommand}>
+              <span>$</span>
+              <input value={command} onChange={(e) => setCommand(e.target.value)} placeholder="Type command (help, skills, services...)" />
+            </form>
+          </div>
+        </section>
+
         <section id="contact" className="section reveal">
-          <h2>Contact</h2>
+          <h2>Contact / CTA</h2>
           <form className="card contact" onSubmit={submit}>
             <input type="hidden" name="_subject" value="New portfolio message" />
             <input type="hidden" name="_captcha" value="false" />
             <label>Name<input name="name" required /></label>
             <label>Email<input name="email" type="email" required /></label>
             <label>Message<textarea name="message" rows={5} required /></label>
-            <button className="btn primary" type="submit" disabled={form.loading}>{form.loading ? 'Sending...' : 'Send Message'}</button>
+            <button className="btn" type="submit" disabled={form.loading}>{form.loading ? 'Sending...' : 'Send Message'}</button>
             {form.ok && <p className="ok">Message sent successfully ✅</p>}
             {form.err && <p className="err">{form.err}</p>}
           </form>
         </section>
       </main>
-
-      <footer className="footer glass">
-        <p>© {new Date().getFullYear()} Artin Krasniqi · Elite Portfolio</p>
-        <button className="chip" onClick={() => navigator.clipboard.writeText('artin.krasniqi100@gmail.com')}>Copy Email</button>
-      </footer>
-
-      {showTop && <button className="top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>↑</button>}
-      <a className="floating-cta" href="#contact">Let’s Build</a>
-
-      {selected && (
-        <button className="modal" onClick={() => setSelected(null)}>
-          <article className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <img src={selected.image} alt={selected.title} />
-            <h3>{selected.title}</h3>
-            <p>{selected.summary}</p>
-            <p><strong>Result:</strong> {selected.result}</p>
-            <div className="chips">{selected.stack.map((s) => <span key={s}>{s}</span>)}</div>
-            <div className="hero-actions">
-              <button className="btn ghost" onClick={() => setSelected(null)}>Close</button>
-            </div>
-          </article>
-        </button>
-      )}
     </div>
   )
 }
